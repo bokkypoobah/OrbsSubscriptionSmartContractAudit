@@ -1,6 +1,6 @@
-// ETH/USD 13 May 2018 01:46 AEDT 863.49 from CMC and https://ethgasstation.info/
-var ethPriceUSD = 656.70;
-var defaultGasPrice = web3.toWei(8, "gwei");
+// ETH/USD 22 May 2018 13:24 AEDT from CMC and https://ethgasstation.info/
+var ethPriceUSD = 686.74;
+var defaultGasPrice = web3.toWei(10, "gwei");
 
 // -----------------------------------------------------------------------------
 // Accounts
@@ -10,24 +10,24 @@ var accountNames = {};
 
 addAccount(eth.accounts[0], "Account #0 - Miner");
 addAccount(eth.accounts[1], "Account #1 - Contract Owner");
-addAccount(eth.accounts[2], "Account #2 - Wallet");
-addAccount(eth.accounts[3], "Account #3 - Whitelisted 10 ETH");
-addAccount(eth.accounts[4], "Account #4 - Whitelisted 10 ETH");
-addAccount(eth.accounts[5], "Account #5 - Not Whitelisted");
-addAccount(eth.accounts[6], "Account #6");
+addAccount(eth.accounts[2], "Account #2 - Token Distributor");
+addAccount(eth.accounts[3], "Account #3 - Federation Member #1");
+addAccount(eth.accounts[4], "Account #4 - Federation Member #2");
+addAccount(eth.accounts[5], "Account #5 - Federation Member #3");
+addAccount(eth.accounts[6], "Account #6 - Federation Member #4");
 addAccount(eth.accounts[7], "Account #7");
 addAccount(eth.accounts[8], "Account #8");
 addAccount(eth.accounts[9], "Account #9");
-addAccount(eth.accounts[10], "Account #10 - Vesting beneficiary");
+addAccount(eth.accounts[10], "Account #10");
 addAccount(eth.accounts[11], "Account #11");
 
 var minerAccount = eth.accounts[0];
 var contractOwnerAccount = eth.accounts[1];
-var wallet = eth.accounts[2];
-var account3 = eth.accounts[3];
-var account4 = eth.accounts[4];
-var account5 = eth.accounts[5];
-var account6 = eth.accounts[6];
+var tokenDistributor = eth.accounts[2];
+var federationMember1 = eth.accounts[3];
+var federationMember2 = eth.accounts[4];
+var federationMember3 = eth.accounts[5];
+var federationMember4 = eth.accounts[6];
 var account7 = eth.accounts[7];
 var account8 = eth.accounts[8];
 var account9 = eth.accounts[9];

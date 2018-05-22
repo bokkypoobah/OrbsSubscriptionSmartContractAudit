@@ -135,33 +135,22 @@ printTxData("libDateTimeAddress=" + libDateTimeAddress, libDateTimeTx);
 console.log("RESULT: ");
 
 
-exit;
-
-
 // -----------------------------------------------------------------------------
-var crowdsaleMessage = "Deploy Crowdsale Contract";
-var rate = "1000";
-var weiCap = new BigNumber("2000").shift(18);
+var tokenMessage = "Deploy Token Contract";
 // -----------------------------------------------------------------------------
-console.log("RESULT: ---------- " + crowdsaleMessage + " ----------");
-var crowdsaleContract = web3.eth.contract(crowdsaleAbi);
-var crowdsaleTx = null;
-var crowdsaleAddress = null;
+console.log("RESULT: ---------- " + tokenMessage + " ----------");
+var tokenContract = web3.eth.contract(tokenAbi);
+var tokenTx = null;
 var tokenAddress = null;
-var token = null;
-var crowdsale = crowdsaleContract.new(wallet, rate, $START_DATE, weiCap, {from: contractOwnerAccount, data: crowdsaleBin, gas: 6000000, gasPrice: defaultGasPrice},
+var token = tokenContract.new(tokenDistributor, {from: contractOwnerAccount, data: tokenBin, gas: 6000000, gasPrice: defaultGasPrice},
   function(e, contract) {
     if (!e) {
       if (!contract.address) {
-        crowdsaleTx = contract.transactionHash;
+        tokenTx = contract.transactionHash;
       } else {
-        crowdsaleAddress = contract.address;
-        addAccount(crowdsaleAddress, "Crowdsale Contract");
-        addCrowdsaleContractAddressAndAbi(crowdsaleAddress, crowdsaleAbi);
-        console.log("DATA: crowdsaleAddress=" + crowdsaleAddress);
-        tokenAddress = crowdsale.token();
-        token = eth.contract(tokenAbi).at(tokenAddress);
+        tokenAddress = contract.address;
         addAccount(tokenAddress, "Token '" + token.symbol() + "' '" + token.name() + "'");
+        console.log("DATA: tokenAddress=" + tokenAddress);
         addTokenContractAddressAndAbi(tokenAddress, tokenAbi);
       }
     }
@@ -170,11 +159,54 @@ var crowdsale = crowdsaleContract.new(wallet, rate, $START_DATE, weiCap, {from: 
 while (txpool.status.pending > 0) {
 }
 printBalances();
-failIfTxStatusError(crowdsaleTx, crowdsaleMessage);
-printTxData("crowdsaleAddress=" + crowdsaleAddress, crowdsaleTx);
+failIfTxStatusError(tokenTx, tokenMessage);
+printTxData("tokenAddress=" + tokenAddress, tokenTx);
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var subscriptionMessage = "Deploy SubscriptionBilling Contract";
+var federationMembers = [federationMember1, federationMember2, federationMember3, federationMember4];
+var minimalMonthlySubscription = new BigNumber("10").shift(18);
+// -----------------------------------------------------------------------------
+console.log("RESULT: ---------- " + subscriptionMessage + " ----------");
+// console.log("RESULT: subscriptionBin='" + subscriptionBin + "'");
+var newSubscriptionBin = subscriptionBin.replace(/__DateTime\.sol\:DateTime_________________/g, libDateTimeAddress.substring(2, 42));
+// console.log("RESULT: newSubscriptionBin='" + newSubscriptionBin + "'");
+var subscriptionContract = web3.eth.contract(subscriptionAbi);
+var subscriptionTx = null;
+var subscriptionAddress = null;
+var subscription = subscriptionContract.new(tokenAddress, federationMembers, minimalMonthlySubscription, {from: contractOwnerAccount, data: newSubscriptionBin, gas: 6000000, gasPrice: defaultGasPrice},
+  function(e, contract) {
+    if (!e) {
+      if (!contract.address) {
+        subscriptionTx = contract.transactionHash;
+      } else {
+        subscriptionAddress = contract.address;
+        addAccount(subscriptionAddress, "SubscriptionBilling Contract");
+        addCrowdsaleContractAddressAndAbi(subscriptionAddress, subscriptionAbi);
+        console.log("DATA: subscriptionAddress=" + subscriptionAddress);
+      }
+    }
+  }
+);
+while (txpool.status.pending > 0) {
+}
+printBalances();
+failIfTxStatusError(subscriptionTx, subscriptionMessage);
+printTxData("subscriptionAddress=" + subscriptionAddress, subscriptionTx);
 printCrowdsaleContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
+
+
+exit;
+
+
+
+exit;
+
 
 
 var fullTesting = true;
