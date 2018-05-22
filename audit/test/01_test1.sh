@@ -167,7 +167,7 @@ console.log("RESULT: ");
 
 // -----------------------------------------------------------------------------
 var subscriptionMessage = "Deploy SubscriptionBilling Contract";
-var federationMembers = [federationMember1, federationMember2, federationMember3, federationMember4];
+var federationMembers = [federationMember1, federationMember2, federationMember3, federationMember4, federationMember5, federationMember6, federationMember7, federationMember8, federationMember9, federationMember10, federationMember11, federationMember12, federationMember13];
 var minimalMonthlySubscription = new BigNumber("10").shift(18);
 // -----------------------------------------------------------------------------
 console.log("RESULT: ---------- " + subscriptionMessage + " ----------");
@@ -201,9 +201,76 @@ printTokenContractDetails();
 console.log("RESULT: ");
 
 
-exit;
+// -----------------------------------------------------------------------------
+var transferAndApproveTokensMessage = "Transfer And Approve Tokens";
+// -----------------------------------------------------------------------------
+console.log("RESULT: ---------- " + transferAndApproveTokensMessage + " ----------");
+var transferAndApproveTokensTx = [];
+var i = 0;
+federationMembers.forEach(function(e) {
+  // console.log("RESULT: " + e);
+  transferAndApproveTokensTx.push(token.transfer(e, new BigNumber(10000).shift(18), {from: tokenDistributor, gas: 100000, gasPrice: defaultGasPrice}));
+  transferAndApproveTokensTx.push(token.approve(subscriptionAddress, new BigNumber(10000).shift(18), {from: e, gas: 100000, gasPrice: defaultGasPrice}));
+  i++;
+});
+while (txpool.status.pending > 0) {
+}
+printBalances();
+i = 0;
+federationMembers.forEach(function(e) {
+  // console.log("RESULT: " + e);
+  var tx = transferAndApproveTokensTx[i];
+  failIfTxStatusError(tx, transferAndApproveTokensMessage + " - " + e);
+  printTxData("transferAndApproveTokens1_" + e, tx);
+  i++;
+});
+printSubscriptionContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
 
 
+// -----------------------------------------------------------------------------
+var subscribeMessage = "Subscribe";
+// -----------------------------------------------------------------------------
+console.log("RESULT: ---------- " + subscribeMessage + " ----------");
+var subscribeTx = [];
+i = 0;
+federationMembers.forEach(function(e) {
+  // console.log("RESULT: " + e);
+  var _id = "0x" + web3.padLeft(web3.toHex(parseInt(i) + 1000).substring(2), 64);
+  var _value = web3.toWei(parseInt(1000) + i * 100 + i % 2 + i % 3 + i % 5 + i % 7, "ether");
+  subscribeTx.push(subscription.subscribeForCurrentMonth(_id, "" + i, _value, {from: e, gas: 300000, gasPrice: defaultGasPrice}));
+  i++;
+});
+while (txpool.status.pending > 0) {
+}
+printBalances();
+i = 0;
+federationMembers.forEach(function(e) {
+  // console.log("RESULT: " + e);
+  var tx = subscribeTx[i];
+  failIfTxStatusError(tx, subscribeMessage + " - " + e);
+  printTxData("subscribe1_" + e, tx);
+  i++;
+});
+printSubscriptionContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
+
+
+// -----------------------------------------------------------------------------
+var distributeFees1_Message = "Distribute Fees";
+// -----------------------------------------------------------------------------
+console.log("RESULT: ---------- " + distributeFees1_Message + " ----------");
+var distributeFees1_1Tx = subscription.distributeFees({from: contractOwnerAccount, gas: 1000000, gasPrice: defaultGasPrice});
+while (txpool.status.pending > 0) {
+}
+printBalances();
+printTxData("distributeFees1_1Tx", distributeFees1_1Tx);
+failIfTxStatusError(distributeFees1_1Tx, distributeFees1_Message);
+printSubscriptionContractDetails();
+printTokenContractDetails();
+console.log("RESULT: ");
 
 exit;
 

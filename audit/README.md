@@ -7,7 +7,8 @@
 Bok Consulting Pty Ltd was commissioned to perform an audit Orbs' token, subscription and billing Ethereum smart contracts.
 
 This audit has been conducted on Orbs' [subscription and billing source code](https://github.com/orbs-network/orbs-subscription) in commits
-[6c9e39d](https://github.com/orbs-network/orbs-subscription/commit/6c9e39ddbc4c0405eb6f0c7c66bef0baaf66acd9).
+[6c9e39d](https://github.com/orbs-network/orbs-subscription/commit/6c9e39ddbc4c0405eb6f0c7c66bef0baaf66acd9) and
+[a380e8e](https://github.com/orbs-network/orbs-subscription/commit/a380e8e61d4a332da99d8aa3dc3bec0293651f9d).
 
 This audit has also been conducted on Orbs' [token source code](https://github.com/orbs-network/orbs-token) in commits
 [044e1e4](https://github.com/orbs-network/orbs-token/commit/044e1e49bab83604cbc3c2522036cd0163dc93cf).

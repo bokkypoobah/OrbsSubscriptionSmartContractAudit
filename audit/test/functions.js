@@ -15,11 +15,15 @@ addAccount(eth.accounts[3], "Account #3 - Federation Member #1");
 addAccount(eth.accounts[4], "Account #4 - Federation Member #2");
 addAccount(eth.accounts[5], "Account #5 - Federation Member #3");
 addAccount(eth.accounts[6], "Account #6 - Federation Member #4");
-addAccount(eth.accounts[7], "Account #7");
-addAccount(eth.accounts[8], "Account #8");
-addAccount(eth.accounts[9], "Account #9");
-addAccount(eth.accounts[10], "Account #10");
-addAccount(eth.accounts[11], "Account #11");
+addAccount(eth.accounts[7], "Account #7 - Federation Member #5");
+addAccount(eth.accounts[8], "Account #8 - Federation Member #6");
+addAccount(eth.accounts[9], "Account #9 - Federation Member #7");
+addAccount(eth.accounts[10], "Account #10 - Federation Member #8");
+addAccount(eth.accounts[11], "Account #11 - Federation Member #9");
+addAccount(eth.accounts[12], "Account #12 - Federation Member #10");
+addAccount(eth.accounts[13], "Account #13 - Federation Member #11");
+addAccount(eth.accounts[14], "Account #14 - Federation Member #12");
+addAccount(eth.accounts[15], "Account #15 - Federation Member #13");
 
 var minerAccount = eth.accounts[0];
 var contractOwnerAccount = eth.accounts[1];
@@ -28,16 +32,20 @@ var federationMember1 = eth.accounts[3];
 var federationMember2 = eth.accounts[4];
 var federationMember3 = eth.accounts[5];
 var federationMember4 = eth.accounts[6];
-var account7 = eth.accounts[7];
-var account8 = eth.accounts[8];
-var account9 = eth.accounts[9];
-var vestingBeneficiary = eth.accounts[10];
-var account11 = eth.accounts[11];
+var federationMember5 = eth.accounts[7];
+var federationMember6 = eth.accounts[8];
+var federationMember7 = eth.accounts[9];
+var federationMember8 = eth.accounts[10];
+var federationMember9 = eth.accounts[11];
+var federationMember10 = eth.accounts[12];
+var federationMember11 = eth.accounts[13];
+var federationMember12 = eth.accounts[14];
+var federationMember13 = eth.accounts[15];
 
 var baseBlock = eth.blockNumber;
 
 function unlockAccounts(password) {
-  for (var i = 0; i < eth.accounts.length && i < accounts.length && i < 13; i++) {
+  for (var i = 0; i < eth.accounts.length && i < accounts.length && i < 17; i++) {
     personal.unlockAccount(eth.accounts[i], password, 100000);
     if (i > 0 && eth.getBalance(eth.accounts[i]) == 0) {
       personal.sendTransaction({from: eth.accounts[0], to: eth.accounts[i], value: web3.toWei(1000000, "ether")});
@@ -327,27 +335,29 @@ function printSubscriptionContractDetails() {
     console.log("RESULT: subscription.VERSION=" + contract.VERSION());
     console.log("RESULT: subscription.MAX_FEDERATION_MEMBERS=" + contract.MAX_FEDERATION_MEMBERS());
     console.log("RESULT: subscription.orbs=" + contract.orbs());
-    console.log("RESULT: subscription.federationMembers[0]=" + contract.federationMembers(0));
-    console.log("RESULT: subscription.federationMembers[1]=" + contract.federationMembers(1));
-    console.log("RESULT: subscription.federationMembers[2]=" + contract.federationMembers(2));
-    console.log("RESULT: subscription.federationMembers[3]=" + contract.federationMembers(3));
-    console.log("RESULT: subscription.minimalMonthlySubscription=" + contract.minimalMonthlySubscription().shift(-18) + " ETH");
+    console.log("RESULT: subscription.minimalMonthlySubscription=" + contract.minimalMonthlySubscription().shift(-18) + " tokens");
     console.log("RESULT: subscription.EMPTY=" + contract.EMPTY());
+    var i;
+    for (i = 0; i < 11; i++ ) {
+      console.log("RESULT: subscription.federationMembers[" + i + "]=" + contract.federationMembers(i));
+    }
 
     var latestBlock = eth.blockNumber;
-    var i;
 
     var subscribedEvents = contract.Subscribed({}, { fromBlock: subscriptionFromBlock, toBlock: latestBlock });
     i = 0;
     subscribedEvents.watch(function (error, result) {
-      console.log("RESULT: Subscribed " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+      console.log("RESULT: Subscribed " + i++ + " #" + result.blockNumber + " subscriber=" + result.args.subscriber +
+        " startFrom=" + new Date(result.args.startFrom * 1000).toString() +
+        " value=" + result.args.value().shift(-18) + " tokens");
     });
     subscribedEvents.stopWatching();
 
     var distributedFeesEvents = contract.DistributedFees({}, { fromBlock: subscriptionFromBlock, toBlock: latestBlock });
     i = 0;
     distributedFeesEvents.watch(function (error, result) {
-      console.log("RESULT: DistributedFees " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+      console.log("RESULT: DistributedFees " + i++ + " #" + result.blockNumber + " federationMember=" + result.args.federationMember +
+        " value=" + result.args.value().shift(-18) + " tokens");
     });
     distributedFeesEvents.stopWatching();
 
