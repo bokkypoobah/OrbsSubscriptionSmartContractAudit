@@ -14,6 +14,7 @@ Unified.sol
 
 .project
 .settings
+audit/code-review/*.sol
 audit/test/testchain/geth
 audit/test/testchain/geth.ipc
 audit/test/testchain/history
