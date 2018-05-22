@@ -7,33 +7,44 @@ Source file [../../contracts/SubscriptionBilling.sol](../../contracts/Subscripti
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity 0.4.23;
 
+// BK Next Ok
 import "zeppelin-solidity/contracts/ownership/HasNoContracts.sol";
 import "zeppelin-solidity/contracts/math/SafeMath.sol";
 import "zeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
+// BK Ok
 import "./DateTime.sol";
 
 /// @title Orbs billing and subscriptions smart contract.
+// BK Ok
 contract SubscriptionBilling is HasNoContracts {
+    // BK Ok
     using SafeMath for uint256;
 
     // The version of the current SubscriptionBilling smart contract.
+    // BK Ok
     string public constant VERSION = "0.1";
 
     // Maximum number of federation members.
+    // BK Ok
     uint public constant MAX_FEDERATION_MEMBERS = 100;
 
     // The address of the previous deployed OrbsToken smart contract.
+    // BK Ok
     ERC20 public orbs;
 
     // Array of federations members.
+    // BK Ok
     address[] public federationMembers;
 
     // The minimal monthly subscription allocation.
+    // BK Ok
     uint public minimalMonthlySubscription;
 
+    // BK Next block Ok
     struct Subscription {
         bytes32 id;
         string profile;
@@ -41,6 +52,7 @@ contract SubscriptionBilling is HasNoContracts {
         uint256 tokens;
     }
 
+    // BK Next block Ok
     struct MonthlySubscriptions {
         mapping(bytes32 => Subscription) subscriptions;
         uint256 totalTokens;
@@ -49,10 +61,13 @@ contract SubscriptionBilling is HasNoContracts {
     /// A mapping between time (in a monthly resolution) and subscriptions, in the following format:
     ///     YEAR --> MONTH -->   MONTHLY_SUBSCRIPTION  --> SUBSCRIPTION_ID -->  SUBSCRIPTION
     ///     2017 -->  12   --> {<subscriptions>, 1000} -->     "User1"     --> {"User1", 100}
+    // BK TODO
     mapping(uint16 => mapping(uint8 => MonthlySubscriptions)) public subscriptions;
 
+    // BK Ok
     bytes32 constant public EMPTY = bytes32(0);
 
+    // BK Next 2 Ok - Events
     event Subscribed(address indexed subscriber, bytes32 indexed id, uint256 value, uint256 startFrom);
     event DistributedFees(address indexed federationMember, uint256 value);
 
@@ -60,12 +75,17 @@ contract SubscriptionBilling is HasNoContracts {
     /// @param _orbs ERC20 The address of the previously deployed OrbsToken contract.
     /// @param _federationMembers address[] The public addresses of the federation members.
     /// @param _minimalMonthlySubscription uint256 The minimal monthly subscription allocation.
+    // BK Ok - Constructor
     constructor(ERC20 _orbs, address[] _federationMembers,
         uint256 _minimalMonthlySubscription) public {
+        // BK Ok
         require(_orbs != address(0), "Address must not be 0!");
+        // BK Ok
         require(isFedererationMembersListValid(_federationMembers), "Invalid federation members list!");
+        // BK Ok
         require(_minimalMonthlySubscription != 0, "Minimal subscription value must be greater than 0!");
 
+        // BK Next 3 Ok
         orbs = _orbs;
         federationMembers = _federationMembers;
         minimalMonthlySubscription = _minimalMonthlySubscription;
@@ -236,20 +256,28 @@ contract SubscriptionBilling is HasNoContracts {
 
     /// @dev Checks federation members list for correctness.
     /// @param _federationMembers address[] The federation members list to check.
+    // BK Ok - Private pure function
     function isFedererationMembersListValid(address[] _federationMembers) private pure returns (bool) {
+        // BK Ok
         if (_federationMembers.length == 0 || _federationMembers.length > MAX_FEDERATION_MEMBERS) {
+            // BK Ok
             return false;
         }
 
         // Make sure there are no duplicates in the federation members list.
+        // BK Ok
         for (uint i = 0; i < _federationMembers.length - 1; ++i) {
+            // BK Ok
             for (uint j = i + 1; j < _federationMembers.length; ++j) {
+                // BK Ok
                 if (_federationMembers[i] == _federationMembers[j]) {
+                    // BK Ok
                     return false;
                 }
             }
         }
 
+        // BK Ok
         return true;
     }
 }
