@@ -338,7 +338,7 @@ function printSubscriptionContractDetails() {
     console.log("RESULT: subscription.minimalMonthlySubscription=" + contract.minimalMonthlySubscription().shift(-18) + " tokens");
     console.log("RESULT: subscription.EMPTY=" + contract.EMPTY());
     var i;
-    for (i = 0; i < 11; i++ ) {
+    for (i = 0; i < 13; i++ ) {
       console.log("RESULT: subscription.federationMembers[" + i + "]=" + contract.federationMembers(i));
     }
 
@@ -363,94 +363,4 @@ function printSubscriptionContractDetails() {
 
     subscriptionFromBlock = latestBlock + 1;
   }
-}
-
-
-// -----------------------------------------------------------------------------
-// Vesting Contract
-// -----------------------------------------------------------------------------
-var vestingContractAddress = null;
-var vestingContractAbi = null;
-
-function addVestingContractAddressAndAbi(address, vestingAbi) {
-  vestingContractAddress = address;
-  vestingContractAbi = vestingAbi;
-}
-
-var vestingFromBlock = 0;
-function printVestingContractDetails() {
-  console.log("RESULT: vestingContractAddress=" + vestingContractAddress);
-  if (vestingContractAddress != null && vestingContractAbi != null) {
-    var contract = eth.contract(vestingContractAbi).at(vestingContractAddress);
-    console.log("RESULT: vesting.owner=" + contract.owner());
-    console.log("RESULT: vesting.beneficiary=" + contract.beneficiary());
-    console.log("RESULT: vesting.startFrom=" + contract.startFrom() + " " + new Date(contract.startFrom() * 1000).toUTCString() + " " + new Date(contract.startFrom() * 1000).toString());
-    console.log("RESULT: vesting.period=" + contract.period());
-    console.log("RESULT: vesting.tokensReleasedPerPeriod=" + contract.tokensReleasedPerPeriod().shift(-18) + " tokens");
-    console.log("RESULT: vesting.elapsedPeriods=" + contract.elapsedPeriods());
-    console.log("RESULT: vesting.getToken=" + contract.getToken());
-
-    var latestBlock = eth.blockNumber;
-    var i;
-
-    var releasedEvents = contract.Released({}, { fromBlock: vestingFromBlock, toBlock: latestBlock });
-    i = 0;
-    releasedEvents.watch(function (error, result) {
-      console.log("RESULT: Released " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
-    });
-    releasedEvents.stopWatching();
-
-    vestingFromBlock = latestBlock + 1;
-  }
-}
-
-
-// -----------------------------------------------------------------------------
-// Generate Summary JSON
-// -----------------------------------------------------------------------------
-function generateSummaryJSON() {
-  console.log("JSONSUMMARY: {");
-  if (crowdsaleContractAddress != null && crowdsaleContractAbi != null) {
-    var contract = eth.contract(crowdsaleContractAbi).at(crowdsaleContractAddress);
-    var blockNumber = eth.blockNumber;
-    var timestamp = eth.getBlock(blockNumber).timestamp;
-    console.log("JSONSUMMARY:   \"blockNumber\": " + blockNumber + ",");
-    console.log("JSONSUMMARY:   \"blockTimestamp\": " + timestamp + ",");
-    console.log("JSONSUMMARY:   \"blockTimestampString\": \"" + new Date(timestamp * 1000).toUTCString() + "\",");
-    console.log("JSONSUMMARY:   \"crowdsaleContractAddress\": \"" + crowdsaleContractAddress + "\",");
-    console.log("JSONSUMMARY:   \"crowdsaleContractOwnerAddress\": \"" + contract.owner() + "\",");
-    console.log("JSONSUMMARY:   \"tokenContractAddress\": \"" + contract.bttsToken() + "\",");
-    console.log("JSONSUMMARY:   \"tokenContractDecimals\": " + contract.TOKEN_DECIMALS() + ",");
-    console.log("JSONSUMMARY:   \"crowdsaleWalletAddress\": \"" + contract.wallet() + "\",");
-    console.log("JSONSUMMARY:   \"crowdsaleTeamWalletAddress\": \"" + contract.teamWallet() + "\",");
-    console.log("JSONSUMMARY:   \"crowdsaleTeamPercent\": " + contract.TEAM_PERCENT_GZE() + ",");
-    console.log("JSONSUMMARY:   \"bonusListContractAddress\": \"" + contract.bonusList() + "\",");
-    console.log("JSONSUMMARY:   \"tier1Bonus\": " + contract.TIER1_BONUS() + ",");
-    console.log("JSONSUMMARY:   \"tier2Bonus\": " + contract.TIER2_BONUS() + ",");
-    console.log("JSONSUMMARY:   \"tier3Bonus\": " + contract.TIER3_BONUS() + ",");
-    var startDate = contract.START_DATE();
-    // BK TODO - Remove for production
-    startDate = 1512921600;
-    var endDate = contract.endDate();
-    // BK TODO - Remove for production
-    endDate = 1513872000;
-    console.log("JSONSUMMARY:   \"crowdsaleStart\": " + startDate + ",");
-    console.log("JSONSUMMARY:   \"crowdsaleStartString\": \"" + new Date(startDate * 1000).toUTCString() + "\",");
-    console.log("JSONSUMMARY:   \"crowdsaleEnd\": " + endDate + ",");
-    console.log("JSONSUMMARY:   \"crowdsaleEndString\": \"" + new Date(endDate * 1000).toUTCString() + "\",");
-    console.log("JSONSUMMARY:   \"usdPerEther\": " + contract.usdPerKEther().shift(-3) + ",");
-    console.log("JSONSUMMARY:   \"usdPerGze\": " + contract.USD_CENT_PER_GZE().shift(-2) + ",");
-    console.log("JSONSUMMARY:   \"gzePerEth\": " + contract.gzePerEth().shift(-18) + ",");
-    console.log("JSONSUMMARY:   \"capInUsd\": " + contract.CAP_USD() + ",");
-    console.log("JSONSUMMARY:   \"capInEth\": " + contract.capEth().shift(-18) + ",");
-    console.log("JSONSUMMARY:   \"minimumContributionEth\": " + contract.MIN_CONTRIBUTION_ETH().shift(-18) + ",");
-    console.log("JSONSUMMARY:   \"contributedEth\": " + contract.contributedEth().shift(-18) + ",");
-    console.log("JSONSUMMARY:   \"contributedUsd\": " + contract.contributedUsd() + ",");
-    console.log("JSONSUMMARY:   \"generatedGze\": " + contract.generatedGze().shift(-18) + ",");
-    console.log("JSONSUMMARY:   \"lockedAccountThresholdUsd\": " + contract.lockedAccountThresholdUsd() + ",");
-    console.log("JSONSUMMARY:   \"lockedAccountThresholdEth\": " + contract.lockedAccountThresholdEth().shift(-18) + ",");
-    console.log("JSONSUMMARY:   \"precommitmentAdjusted\": " + contract.precommitmentAdjusted() + ",");
-    console.log("JSONSUMMARY:   \"finalised\": " + contract.finalised());
-  }
-  console.log("JSONSUMMARY: }");
 }

@@ -77,12 +77,31 @@ TODO
 
 Details of the testing environment can be found in [test](test).
 
+### Subscription And Billing
+
 The following functions were tested using the script [test/01_test1.sh](test/01_test1.sh) with the summary results saved
 in [test/test1results.txt](test/test1results.txt) and the detailed output saved in [test/test1output.txt](test/test1output.txt):
 
-* [x] Deploy members library
+* [x] Deploy DateTime library
 * [x] Deploy token contract
 * [x] Deploy SubscriptionBilling contract
+* [x] Each FederationMember `approve(...)`s for their tokens to be transferred to the SubscriptionBilling contract
+* [x] Each FederationMember executes `SubscriptionBilling.subscribeForCurrentMonth(...)`
+* [x] Execute `SubscriptionBilling.distributeFees(...)` to distribute fee tokens to each FederationMember
+
+<br />
+
+### DateTime
+
+The following functions were tested using the script [test/02_testDateTime.sh](test/02_testDateTime.sh) with the summary results saved
+in [test/test2results.txt](test/test2results.txt) and the detailed output saved in [test/test2output.txt](test/test2output.txt):
+
+* [x] Deploy DateTime library
+* [x] Deploy TestDateTime contract
+* [x] For a range of Unix timestamps
+  * [x] Generate the year/month/day hour/minute/second from the Unix timestamp
+  * [x] Generate the Unix timestamp from the calculated year/month/day hour/minute/second
+  * [x] Compare the year/month/day hour/minute/second to the JavaScript **Date** calculation
 
 <br />
 

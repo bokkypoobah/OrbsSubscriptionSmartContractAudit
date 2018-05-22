@@ -22,8 +22,8 @@ SUBSCRIPTIONJS=`grep ^SUBSCRIPTIONJS= settings.txt | sed "s/^.*=//"`
 DEPLOYMENTDATA=`grep ^DEPLOYMENTDATA= settings.txt | sed "s/^.*=//"`
 
 INCLUDEJS=`grep ^INCLUDEJS= settings.txt | sed "s/^.*=//"`
-TEST1OUTPUT=`grep ^TEST1OUTPUT= settings.txt | sed "s/^.*=//"`
-TEST1RESULTS=`grep ^TEST1RESULTS= settings.txt | sed "s/^.*=//"`
+TEST2OUTPUT=`grep ^TEST2OUTPUT= settings.txt | sed "s/^.*=//"`
+TEST2RESULTS=`grep ^TEST2RESULTS= settings.txt | sed "s/^.*=//"`
 
 CURRENTTIME=`date +%s`
 CURRENTTIMES=`date -r $CURRENTTIME -u`
@@ -33,71 +33,49 @@ START_DATE_S=`date -r $START_DATE -u`
 END_DATE=`echo "$CURRENTTIME+60*1+30" | bc`
 END_DATE_S=`date -r $END_DATE -u`
 
-printf "MODE               = '$MODE'\n" | tee $TEST1OUTPUT
-printf "GETHATTACHPOINT    = '$GETHATTACHPOINT'\n" | tee -a $TEST1OUTPUT
-printf "PASSWORD           = '$PASSWORD'\n" | tee -a $TEST1OUTPUT
-printf "TOKENSOURCEDIR     = '$TOKENSOURCEDIR'\n" | tee -a $TEST1OUTPUT
-printf "SOURCEDIR          = '$SOURCEDIR'\n" | tee -a $TEST1OUTPUT
-printf "OZSOURCEDIR        = '$OZSOURCEDIR'\n" | tee -a $TEST1OUTPUT
-printf "TOKENSOL           = '$TOKENSOL'\n" | tee -a $TEST1OUTPUT
-printf "TOKENJS            = '$TOKENJS'\n" | tee -a $TEST1OUTPUT
-printf "SUBSCRIPTIONSOL    = '$SUBSCRIPTIONSOL'\n" | tee -a $TEST1OUTPUT
-printf "SUBSCRIPTIONJS     = '$SUBSCRIPTIONJS'\n" | tee -a $TEST1OUTPUT
-printf "DEPLOYMENTDATA     = '$DEPLOYMENTDATA'\n" | tee -a $TEST1OUTPUT
-printf "INCLUDEJS          = '$INCLUDEJS'\n" | tee -a $TEST1OUTPUT
-printf "TEST1OUTPUT        = '$TEST1OUTPUT'\n" | tee -a $TEST1OUTPUT
-printf "TEST1RESULTS       = '$TEST1RESULTS'\n" | tee -a $TEST1OUTPUT
-printf "CURRENTTIME        = '$CURRENTTIME' '$CURRENTTIMES'\n" | tee -a $TEST1OUTPUT
-printf "START_DATE         = '$START_DATE' '$START_DATE_S'\n" | tee -a $TEST1OUTPUT
-printf "END_DATE           = '$END_DATE' '$END_DATE_S'\n" | tee -a $TEST1OUTPUT
+printf "MODE               = '$MODE'\n" | tee $TEST2OUTPUT
+printf "GETHATTACHPOINT    = '$GETHATTACHPOINT'\n" | tee -a $TEST2OUTPUT
+printf "PASSWORD           = '$PASSWORD'\n" | tee -a $TEST2OUTPUT
+printf "TOKENSOURCEDIR     = '$TOKENSOURCEDIR'\n" | tee -a $TEST2OUTPUT
+printf "SOURCEDIR          = '$SOURCEDIR'\n" | tee -a $TEST2OUTPUT
+printf "OZSOURCEDIR        = '$OZSOURCEDIR'\n" | tee -a $TEST2OUTPUT
+printf "TOKENSOL           = '$TOKENSOL'\n" | tee -a $TEST2OUTPUT
+printf "TOKENJS            = '$TOKENJS'\n" | tee -a $TEST2OUTPUT
+printf "SUBSCRIPTIONSOL    = '$SUBSCRIPTIONSOL'\n" | tee -a $TEST2OUTPUT
+printf "SUBSCRIPTIONJS     = '$SUBSCRIPTIONJS'\n" | tee -a $TEST2OUTPUT
+printf "DEPLOYMENTDATA     = '$DEPLOYMENTDATA'\n" | tee -a $TEST2OUTPUT
+printf "INCLUDEJS          = '$INCLUDEJS'\n" | tee -a $TEST2OUTPUT
+printf "TEST2OUTPUT        = '$TEST2OUTPUT'\n" | tee -a $TEST2OUTPUT
+printf "TEST2RESULTS       = '$TEST2RESULTS'\n" | tee -a $TEST2OUTPUT
+printf "CURRENTTIME        = '$CURRENTTIME' '$CURRENTTIMES'\n" | tee -a $TEST2OUTPUT
+printf "START_DATE         = '$START_DATE' '$START_DATE_S'\n" | tee -a $TEST2OUTPUT
+printf "END_DATE           = '$END_DATE' '$END_DATE_S'\n" | tee -a $TEST2OUTPUT
 
 # Make copy of SOL file and modify start and end times ---
-`cp $TOKENSOURCEDIR/$TOKENSOL .`
 `cp $SOURCEDIR/DateTime.sol .`
-`cp $SOURCEDIR/$SUBSCRIPTIONSOL .`
+`cp ../test-contracts/TestDateTime.sol .`
 `cp -rp $OZSOURCEDIR/* .`
 
 # --- Modify parameters ---
 `perl -pi -e "s/zeppelin-solidity\/contracts\///" *.sol`
-`perl -pi -e "s/totalSupply_ \= totalSupply_\.add\(TOTAL_SUPPLY\);/totalSupply_ \= TOTAL_SUPPLY;/" $TOKENSOL`
-`perl -pi -e "s/balances\[_distributor\] \= balances\[_distributor\]\.add\(TOTAL_SUPPLY\);/balances\[_distributor\] \= TOTAL_SUPPLY;/" $TOKENSOL`
+`perl -pi -e "s/pragma solidity 0\.4\.23;/pragma solidity \^0\.4\.23;/" DateTime.sol`
 
-DIFFS1=`diff $TOKENSOURCEDIR/$TOKENSOL $TOKENSOL`
-echo "--- Differences $TOKENSOURCEDIR/$TOKENSOL $TOKENSOL ---" | tee -a $TEST1OUTPUT
-echo "$DIFFS1" | tee -a $TEST1OUTPUT
 
-DIFFS1=`diff $SOURCEDIR/$SUBSCRIPTIONSOL $SUBSCRIPTIONSOL`
-echo "--- Differences $SOURCEDIR/$SUBSCRIPTIONSOL $SUBSCRIPTIONSOL ---" | tee -a $TEST1OUTPUT
-echo "$DIFFS1" | tee -a $TEST1OUTPUT
+solc_0.4.24 --version | tee -a $TEST2OUTPUT
 
-# for FILE in $TOKENSOL $CROWDSALESOL $VESTINGSOL
-# do
-#   DIFFS1=`diff $SOURCEDIR/$FILE $FILE`
-#   echo "--- Differences $SOURCEDIR/$FILE $FILE ---" | tee -a $TEST1OUTPUT
-#   echo "$DIFFS1" | tee -a $TEST1OUTPUT
-# done
+echo "var testDateTimeOutput=`solc_0.4.24 --optimize --pretty-json --combined-json abi,bin,interface TestDateTime.sol`;" > TestDateTime.js
 
-solc_0.4.23 --version | tee -a $TEST1OUTPUT
-
-echo "var tokenOutput=`solc_0.4.23 --optimize --pretty-json --combined-json abi,bin,interface $TOKENSOL`;" > $TOKENJS
-echo "var subscriptionOutput=`solc_0.4.23 --optimize --pretty-json --combined-json abi,bin,interface $SUBSCRIPTIONSOL`;" > $SUBSCRIPTIONJS
-
-geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee -a $TEST1OUTPUT
-loadScript("$TOKENJS");
-loadScript("$SUBSCRIPTIONJS");
+geth --verbosity 3 attach $GETHATTACHPOINT << EOF | tee -a $TEST2OUTPUT
+loadScript("TestDateTime.js");
 loadScript("functions.js");
 
-var tokenAbi = JSON.parse(tokenOutput.contracts["$TOKENSOL:OrbsToken"].abi);
-var tokenBin = "0x" + tokenOutput.contracts["$TOKENSOL:OrbsToken"].bin;
-var subscriptionAbi = JSON.parse(subscriptionOutput.contracts["$SUBSCRIPTIONSOL:SubscriptionBilling"].abi);
-var subscriptionBin = "0x" + subscriptionOutput.contracts["$SUBSCRIPTIONSOL:SubscriptionBilling"].bin;
-var libDateTimeAbi = JSON.parse(subscriptionOutput.contracts["DateTime.sol:DateTime"].abi);
-var libDateTimeBin = "0x" + subscriptionOutput.contracts["DateTime.sol:DateTime"].bin;
+var testDateTimeAbi = JSON.parse(testDateTimeOutput.contracts["TestDateTime.sol:TestDateTime"].abi);
+var testDateTimeBin = "0x" + testDateTimeOutput.contracts["TestDateTime.sol:TestDateTime"].bin;
+var libDateTimeAbi = JSON.parse(testDateTimeOutput.contracts["DateTime.sol:DateTime"].abi);
+var libDateTimeBin = "0x" + testDateTimeOutput.contracts["DateTime.sol:DateTime"].bin;
 
-// console.log("DATA: tokenAbi=" + JSON.stringify(tokenAbi));
-// console.log("DATA: tokenBin=" + JSON.stringify(tokenBin));
-// console.log("DATA: subscriptionAbi=" + JSON.stringify(subscriptionAbi));
-// console.log("DATA: subscriptionBin=" + JSON.stringify(subscriptionBin));
+// console.log("DATA: testDateTimeAbi=" + JSON.stringify(testDateTimeAbi));
+// console.log("DATA: testDateTimeBin=" + JSON.stringify(testDateTimeBin));
 // console.log("DATA: libDateTimeAbi=" + JSON.stringify(libDateTimeAbi));
 // console.log("DATA: libDateTimeBin=" + JSON.stringify(libDateTimeBin));
 
@@ -136,22 +114,24 @@ console.log("RESULT: ");
 
 
 // -----------------------------------------------------------------------------
-var tokenMessage = "Deploy Token Contract";
+var testDateTimeMessage = "Deploy TestDateTime Contract";
 // -----------------------------------------------------------------------------
-console.log("RESULT: ---------- " + tokenMessage + " ----------");
-var tokenContract = web3.eth.contract(tokenAbi);
-var tokenTx = null;
-var tokenAddress = null;
-var token = tokenContract.new(tokenDistributor, {from: contractOwnerAccount, data: tokenBin, gas: 6000000, gasPrice: defaultGasPrice},
+console.log("RESULT: ---------- " + testDateTimeMessage + " ----------");
+// console.log("RESULT: testDateTimeBin='" + testDateTimeBin + "'");
+var newTestDateTimeBin = testDateTimeBin.replace(/__DateTime\.sol\:DateTime_________________/g, libDateTimeAddress.substring(2, 42));
+// console.log("RESULT: newTestDateTimeBin='" + newTestDateTimeBin + "'");
+var testDateTimeContract = web3.eth.contract(testDateTimeAbi);
+var testDateTimeTx = null;
+var testDateTimeAddress = null;
+var testDateTime = testDateTimeContract.new({from: contractOwnerAccount, data: newTestDateTimeBin, gas: 6000000, gasPrice: defaultGasPrice},
   function(e, contract) {
     if (!e) {
       if (!contract.address) {
-        tokenTx = contract.transactionHash;
+        testDateTimeTx = contract.transactionHash;
       } else {
-        tokenAddress = contract.address;
-        addAccount(tokenAddress, "Token '" + token.symbol() + "' '" + token.name() + "'");
-        console.log("DATA: tokenAddress=" + tokenAddress);
-        addTokenContractAddressAndAbi(tokenAddress, tokenAbi);
+        testDateTimeAddress = contract.address;
+        addAccount(testDateTimeAddress, "TestDateTime");
+        console.log("DATA: testDateTimeAddress=" + testDateTimeAddress);
       }
     }
   }
@@ -159,11 +139,36 @@ var token = tokenContract.new(tokenDistributor, {from: contractOwnerAccount, dat
 while (txpool.status.pending > 0) {
 }
 printBalances();
-failIfTxStatusError(tokenTx, tokenMessage);
-printTxData("tokenAddress=" + tokenAddress, tokenTx);
-printTokenContractDetails();
+failIfTxStatusError(testDateTimeTx, testDateTimeMessage);
+printTxData("testDateTimeAddress=" + testDateTimeAddress, testDateTimeTx);
 console.log("RESULT: ");
 
+var now = new Date()/1000;
+
+for (var i = parseInt(now); i < parseInt(now) + 500000000; i = parseInt(i) + 1000000 + new Date() % 173) {
+  var fromTimestamp = testDateTime.fromTimestamp(i);
+  var toTimestamp = testDateTime.toTimestamp(fromTimestamp[0], fromTimestamp[1], fromTimestamp[2], fromTimestamp[3], fromTimestamp[4], fromTimestamp[5]);
+  var jsDate = new Date(i * 1000);
+  if (jsDate.getUTCFullYear() == fromTimestamp[0] && parseInt(jsDate.getUTCMonth() + 1) == fromTimestamp[1] && jsDate.getUTCDate() == fromTimestamp[2] &&
+    jsDate.getUTCHours() == fromTimestamp[3] && jsDate.getUTCMinutes() == fromTimestamp[4] && jsDate.getUTCSeconds() == fromTimestamp[5]) {
+    console.log("RESULT: PASS jsDate matches");
+  } else {
+    console.log("RESULT: FAIL? jsDate.getUTCFullYear()=" + jsDate.getUTCFullYear() + " fromTimestamp[0]=" + fromTimestamp[0]);
+    console.log("RESULT: FAIL? jsDate.getUTCMonth()+1=" + (parseInt(jsDate.getUTCMonth()) + 1) + " fromTimestamp[1]=" + fromTimestamp[1]);
+    console.log("RESULT: FAIL? jsDate.getUTCDate()=" + jsDate.getUTCDate() + " fromTimestamp[2]=" + fromTimestamp[2]);
+    console.log("RESULT: FAIL? jsDate.getUTCHours()=" + jsDate.getUTCHours() + " fromTimestamp[3]=" + fromTimestamp[3]);
+    console.log("RESULT: FAIL? jsDate.getUTCMinutes()=" + jsDate.getUTCMinutes() + " fromTimestamp[4]=" + fromTimestamp[4]);
+    console.log("RESULT: FAIL? jsDate.getUTCSeconds()=" + jsDate.getUTCSeconds() + " fromTimestamp[5]=" + fromTimestamp[5]);
+  }
+  console.log("RESULT: now=" + i + " fromTimestamp=" + JSON.stringify(fromTimestamp));
+  if (i == toTimestamp) {
+    console.log("RESULT: PASS now=" + i + " fromTimestamp=" + JSON.stringify(fromTimestamp) + " toTimestamp=" + toTimestamp);
+  } else {
+    console.log("RESULT: FAIL now=" + i + " fromTimestamp=" + JSON.stringify(fromTimestamp)+ " toTimestamp=" + toTimestamp);
+  }
+}
+
+exit;
 
 // -----------------------------------------------------------------------------
 var subscriptionMessage = "Deploy SubscriptionBilling Contract";
@@ -274,7 +279,7 @@ console.log("RESULT: ");
 
 
 EOF
-grep "DATA: " $TEST1OUTPUT | sed "s/DATA: //" > $DEPLOYMENTDATA
+grep "DATA: " $TEST2OUTPUT | sed "s/DATA: //" > $DEPLOYMENTDATA
 cat $DEPLOYMENTDATA
-grep "RESULT: " $TEST1OUTPUT | sed "s/RESULT: //" > $TEST1RESULTS
-cat $TEST1RESULTS
+grep "RESULT: " $TEST2OUTPUT | sed "s/RESULT: //" > $TEST2RESULTS
+cat $TEST2RESULTS

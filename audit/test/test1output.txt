@@ -12,9 +12,9 @@ DEPLOYMENTDATA     = 'deploymentData.txt'
 INCLUDEJS          = './include.js'
 TEST1OUTPUT        = 'test1output.txt'
 TEST1RESULTS       = 'test1results.txt'
-CURRENTTIME        = '1526977171' 'Tue 22 May 2018 08:19:31 UTC'
-START_DATE         = '1526977201' 'Tue 22 May 2018 08:20:01 UTC'
-END_DATE           = '1526977261' 'Tue 22 May 2018 08:21:01 UTC'
+CURRENTTIME        = '1526977480' 'Tue 22 May 2018 08:24:40 UTC'
+START_DATE         = '1526977510' 'Tue 22 May 2018 08:25:10 UTC'
+END_DATE           = '1526977570' 'Tue 22 May 2018 08:26:10 UTC'
 --- Differences ../orbstoken-contracts/OrbsToken.sol OrbsToken.sol ---
 3,5c3,5
 < import "zeppelin-solidity/contracts/ownership/HasNoContracts.sol";
@@ -45,7 +45,7 @@ Welcome to the Geth JavaScript console!
 
 instance: Geth/v1.8.6-stable-12683fec/darwin-amd64/go1.10
 coinbase: 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e
-at block: 20106 (Tue, 22 May 2018 18:19:32 AEST)
+at block: 20414 (Tue, 22 May 2018 18:24:40 AEST)
  datadir: /Users/bok/Projects/OrbsSubscriptionSmartContractAudit/audit/test/testchain
  modules: admin:1.0 clique:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0
 
@@ -147,7 +147,7 @@ undefined
 ... 
 undefined
 > 
-DATA: libDateTimeAddress=0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512
+DATA: libDateTimeAddress=0xf073db038c467b3cc774fbd95fb4fafa37caa90e
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.008454120000000000           0.000000000000000000 Account #0 - Miner
@@ -166,7 +166,7 @@ RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.00000000000000000
 RESULT: 13 0xadda9b762a00ff12711113bfdc36958b73d7f915        0.000000000000000000           0.000000000000000000 Account #13 - Federation Member #11
 RESULT: 14 0xaeea63b5479b50f79583ec49dacdcf86ddeff392        0.000000000000000000           0.000000000000000000 Account #14 - Federation Member #12
 RESULT: 15 0xaffa4d3a80add8ce4018540e056dacb649589394        0.000000000000000000           0.000000000000000000 Account #15 - Federation Member #13
-RESULT: 16 0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 16 0xf073db038c467b3cc774fbd95fb4fafa37caa90e        0.000000000000000000           0.000000000000000000 DateTime Library
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -176,7 +176,7 @@ undefined
 RESULT: PASS Deploy DateTime Library
 1
 > 
-RESULT: libDateTimeAddress=0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512 status=0x1 Success gas=6000000 gasUsed=845412 costETH=0.00845412 costUSD=5.8057823688 @ ETH/USD=686.74 gasPrice=10 gwei block=20118 txIx=0 txId=0x6db6cf92d33d070c109db814f30159ec2bc13540e9604bbbe3db074052830815 @ 1526977184 Tue, 22 May 2018 08:19:44 UTC
+RESULT: libDateTimeAddress=0xf073db038c467b3cc774fbd95fb4fafa37caa90e status=0x1 Success gas=6000000 gasUsed=845412 costETH=0.00845412 costUSD=5.8057823688 @ ETH/USD=686.74 gasPrice=10 gwei block=20428 txIx=0 txId=0xd45373a0b7bab7b317dd979796ea9b9174d148a1e954944fbc01c1365e8d1d0a @ 1526977494 Tue, 22 May 2018 08:24:54 UTC
 undefined
 > 
 RESULT: 
@@ -217,7 +217,7 @@ undefined
 ... 
 undefined
 > 
-DATA: tokenAddress=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+DATA: tokenAddress=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.017967660000000000           0.000000000000000000 Account #0 - Miner
@@ -236,8 +236,8 @@ RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.00000000000000000
 RESULT: 13 0xadda9b762a00ff12711113bfdc36958b73d7f915        0.000000000000000000           0.000000000000000000 Account #13 - Federation Member #11
 RESULT: 14 0xaeea63b5479b50f79583ec49dacdcf86ddeff392        0.000000000000000000           0.000000000000000000 Account #14 - Federation Member #12
 RESULT: 15 0xaffa4d3a80add8ce4018540e056dacb649589394        0.000000000000000000           0.000000000000000000 Account #15 - Federation Member #13
-RESULT: 16 0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512        0.000000000000000000           0.000000000000000000 DateTime Library
-RESULT: 17 0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+RESULT: 16 0xf073db038c467b3cc774fbd95fb4fafa37caa90e        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 17 0x5b7fb35f3f70a189e940bce616b67d870f600d35        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                           10000000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -247,15 +247,15 @@ undefined
 RESULT: PASS Deploy Token Contract
 1
 > 
-RESULT: tokenAddress=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f status=0x1 Success gas=6000000 gasUsed=951354 costETH=0.00951354 costUSD=6.5333284596 @ ETH/USD=686.74 gasPrice=10 gwei block=20120 txIx=0 txId=0xabb296477164027967bcfeef0f88e5a378808e9dc8ec56a68e4ad876f5c4e688 @ 1526977186 Tue, 22 May 2018 08:19:46 UTC
+RESULT: tokenAddress=0x5b7fb35f3f70a189e940bce616b67d870f600d35 status=0x1 Success gas=6000000 gasUsed=951354 costETH=0.00951354 costUSD=6.5333284596 @ ETH/USD=686.74 gasPrice=10 gwei block=20430 txIx=0 txId=0x01bec459707c1afa14a3c671e7ff2fc0038cc9cb124cbe6a26f5867c2538ce99 @ 1526977496 Tue, 22 May 2018 08:24:56 UTC
 undefined
 > 
-RESULT: tokenContractAddress=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: tokenContractAddress=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: token.symbol=ORBS
 RESULT: token.name=Orbs
 RESULT: token.decimals=18
 RESULT: token.totalSupply=10000000000
-RESULT: Transfer 0 #20120: from=0x0000000000000000000000000000000000000000 to=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 value=10000000000
+RESULT: Transfer 0 #20430: from=0x0000000000000000000000000000000000000000 to=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 value=10000000000
 undefined
 > 
 RESULT: 
@@ -306,7 +306,7 @@ undefined
 ... 
 undefined
 > 
-DATA: subscriptionAddress=0x4c01da023142a1b222d185880f75cbb78916ac99
+DATA: subscriptionAddress=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.036959510000000000           0.000000000000000000 Account #0 - Miner
@@ -325,9 +325,9 @@ RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f        0.00000000000000000
 RESULT: 13 0xadda9b762a00ff12711113bfdc36958b73d7f915        0.000000000000000000           0.000000000000000000 Account #13 - Federation Member #11
 RESULT: 14 0xaeea63b5479b50f79583ec49dacdcf86ddeff392        0.000000000000000000           0.000000000000000000 Account #14 - Federation Member #12
 RESULT: 15 0xaffa4d3a80add8ce4018540e056dacb649589394        0.000000000000000000           0.000000000000000000 Account #15 - Federation Member #13
-RESULT: 16 0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512        0.000000000000000000           0.000000000000000000 DateTime Library
-RESULT: 17 0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
-RESULT: 18 0x4c01da023142a1b222d185880f75cbb78916ac99        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
+RESULT: 16 0xf073db038c467b3cc774fbd95fb4fafa37caa90e        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 17 0x5b7fb35f3f70a189e940bce616b67d870f600d35        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+RESULT: 18 0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                           10000000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -337,13 +337,13 @@ undefined
 RESULT: PASS Deploy SubscriptionBilling Contract
 1
 > 
-RESULT: subscriptionAddress=0x4c01da023142a1b222d185880f75cbb78916ac99 status=0x1 Success gas=6000000 gasUsed=1899185 costETH=0.01899185 costUSD=13.042463069 @ ETH/USD=686.74 gasPrice=10 gwei block=20123 txIx=0 txId=0xe159f14698b4365b8d5920aa3d053c7171fb4247f99bbee90dc242bd29d8d963 @ 1526977189 Tue, 22 May 2018 08:19:49 UTC
+RESULT: subscriptionAddress=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 status=0x1 Success gas=6000000 gasUsed=1899185 costETH=0.01899185 costUSD=13.042463069 @ ETH/USD=686.74 gasPrice=10 gwei block=20437 txIx=0 txId=0xf52d1d5d4ec9f9771644d37950de7e181382d8d2a664d65f4336f02f2c89f735 @ 1526977503 Tue, 22 May 2018 08:25:03 UTC
 undefined
 > 
-RESULT: subscriptionContractAddress=0x4c01da023142a1b222d185880f75cbb78916ac99
+RESULT: subscriptionContractAddress=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140
 RESULT: subscription.VERSION=0.1
 RESULT: subscription.MAX_FEDERATION_MEMBERS=100
-RESULT: subscription.orbs=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: subscription.orbs=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: subscription.minimalMonthlySubscription=10 tokens
 RESULT: subscription.EMPTY=0x0000000000000000000000000000000000000000000000000000000000000000
 RESULT: subscription.federationMembers[0]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
@@ -357,9 +357,11 @@ RESULT: subscription.federationMembers[7]=0xaaaa9de1e6c564446ebca0fd102d8bd92093
 RESULT: subscription.federationMembers[8]=0xabba43e7594e3b76afb157989e93c6621497fd4b
 RESULT: subscription.federationMembers[9]=0xacca534c9f62ab495bd986e002ddf0f054caae4f
 RESULT: subscription.federationMembers[10]=0xadda9b762a00ff12711113bfdc36958b73d7f915
+RESULT: subscription.federationMembers[11]=0xaeea63b5479b50f79583ec49dacdcf86ddeff392
+RESULT: subscription.federationMembers[12]=0xaffa4d3a80add8ce4018540e056dacb649589394
 undefined
 > 
-RESULT: tokenContractAddress=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: tokenContractAddress=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: token.symbol=ORBS
 RESULT: token.name=Orbs
 RESULT: token.decimals=18
@@ -412,9 +414,9 @@ RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f       -0.00045749000000000
 RESULT: 13 0xadda9b762a00ff12711113bfdc36958b73d7f915       -0.000457490000000000       10000.000000000000000000 Account #13 - Federation Member #11
 RESULT: 14 0xaeea63b5479b50f79583ec49dacdcf86ddeff392       -0.000457490000000000       10000.000000000000000000 Account #14 - Federation Member #12
 RESULT: 15 0xaffa4d3a80add8ce4018540e056dacb649589394       -0.000457490000000000       10000.000000000000000000 Account #15 - Federation Member #13
-RESULT: 16 0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512        0.000000000000000000           0.000000000000000000 DateTime Library
-RESULT: 17 0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
-RESULT: 18 0x4c01da023142a1b222d185880f75cbb78916ac99        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
+RESULT: 16 0xf073db038c467b3cc774fbd95fb4fafa37caa90e        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 17 0x5b7fb35f3f70a189e940bce616b67d870f600d35        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+RESULT: 18 0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                           10000000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -430,37 +432,37 @@ undefined
 ...... 
 ...... 
 RESULT: PASS Transfer And Approve Tokens - 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
-RESULT: transferAndApproveTokens1_0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=0 txId=0x8c9b6d68cc8f3924d58c9604b10fe38899ddee1e6bdd977a3b7351821eb3a406 @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=0 txId=0x7d37517575d04f7e2411af3a5175bd2cf5bb38eb3bccda353aa7b093a826d753 @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: transferAndApproveTokens1_0xa44a08d3f6933c69212114bb66e2df1813651844 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=6 txId=0x5ca93396d9b77add658c7e8bdcbc07c545e72bbda2b25df035128dedebf4278e @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xa44a08d3f6933c69212114bb66e2df1813651844 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=9 txId=0xce3c6573f40da357ec34fe48fba9f431a9c18b5a5e47dd45ec9eb0b8c2c71a0d @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xa55a151eb00fded1634d27d1127b4be4627079ea
-RESULT: transferAndApproveTokens1_0xa55a151eb00fded1634d27d1127b4be4627079ea status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=1 txId=0x2d1819169153a75624f44c28fbcd64cbd074c91a352ca4fc5f0a47706c73decb @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xa55a151eb00fded1634d27d1127b4be4627079ea status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=1 txId=0x7837aa22b33cf871000f8c9e91e12cc8fe22d316868d57b371d1b074e28485f2 @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9
-RESULT: transferAndApproveTokens1_0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=5 txId=0x67454c0de22fc6310af011e1bb55bc23771e805cf46a949789dfde3b37a5e7d3 @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=8 txId=0x0b4e072e8cadad2a43c94b8c50295bf4a220974e95b0758350569aca79babebf @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec
-RESULT: transferAndApproveTokens1_0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=2 txId=0xea3c81966570c30cd9766c8cd3993b8a8e8f8ca420d197365211b4b9cb04c8fe @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=2 txId=0xb33c9c1875f791a1e37eebf9864f6b3892ea93027637f9a30eda26e7b5f7ffbc @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xa88a05d2b88283ce84c8325760b72a64591279a2
-RESULT: transferAndApproveTokens1_0xa88a05d2b88283ce84c8325760b72a64591279a2 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=8 txId=0xf23510e829f3a77ccfdbdd056375008be376c6abd4fb927d34165a2de95caf18 @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xa88a05d2b88283ce84c8325760b72a64591279a2 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=12 txId=0xc5942c1751120cbc27d00a25fad96eb3e581f00b0dda580d169c25577435fcbd @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0
-RESULT: transferAndApproveTokens1_0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=3 txId=0x9fe5043e55e67aa01dd98c625e07b14e47ac0982f532ded24cc8ef0ef66c51e1 @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=3 txId=0xdf1562c2c0d806cc747f989ad7b4c205ee767e104cf4efca1ce866026d42411f @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: transferAndApproveTokens1_0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=7 txId=0xf2de428347ab59ff4cf2f6f4af7b6ccede0731b421202caaf91088398f323389 @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=11 txId=0x22a1448355028f34b7a8fdd0ca8574cd27276e5d1199e64007366fb455a60efe @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xabba43e7594e3b76afb157989e93c6621497fd4b
-RESULT: transferAndApproveTokens1_0xabba43e7594e3b76afb157989e93c6621497fd4b status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20126 txIx=4 txId=0x14c0c3278d6f904af53ce1447a2b01795f6c7b350cc7313fe3f88e58a6c92901 @ 1526977192 Tue, 22 May 2018 08:19:52 UTC
+RESULT: transferAndApproveTokens1_0xabba43e7594e3b76afb157989e93c6621497fd4b status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=4 txId=0x65ebe0c839dc6e347dc807e40f0bda3c66e9d2fef3adf928ceaea845d66f174f @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xacca534c9f62ab495bd986e002ddf0f054caae4f
-RESULT: transferAndApproveTokens1_0xacca534c9f62ab495bd986e002ddf0f054caae4f status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20127 txIx=1 txId=0xac617fdc4596508d90c2eff18aadf041ca97007d7f6228ab62de6977225afe3a @ 1526977193 Tue, 22 May 2018 08:19:53 UTC
+RESULT: transferAndApproveTokens1_0xacca534c9f62ab495bd986e002ddf0f054caae4f status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=10 txId=0x55032a8a26277bcc92648a1bd6141ba66f8a71d56c9d84879f926c0a5e8b090f @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xadda9b762a00ff12711113bfdc36958b73d7f915
-RESULT: transferAndApproveTokens1_0xadda9b762a00ff12711113bfdc36958b73d7f915 status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20127 txIx=2 txId=0xebba39cddb392662b0d06a9a294aca970d70ccd5957a0931cc67a0c728902288 @ 1526977193 Tue, 22 May 2018 08:19:53 UTC
+RESULT: transferAndApproveTokens1_0xadda9b762a00ff12711113bfdc36958b73d7f915 status=0x1 Success gas=100000 gasUsed=52316 costETH=0.00052316 costUSD=0.3592748984 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=5 txId=0xeab061d2f3002583712489f1333d2ea0b9eadf3045e565fa6aa30010b445a0eb @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xaeea63b5479b50f79583ec49dacdcf86ddeff392
-RESULT: transferAndApproveTokens1_0xaeea63b5479b50f79583ec49dacdcf86ddeff392 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20127 txIx=14 txId=0x1bcace0f81a5772139d774151188107a37cc8d1ee6f059463e7a087b0fa6257a @ 1526977193 Tue, 22 May 2018 08:19:53 UTC
+RESULT: transferAndApproveTokens1_0xaeea63b5479b50f79583ec49dacdcf86ddeff392 status=0x1 Success gas=100000 gasUsed=45749 costETH=0.00045749 costUSD=0.3141766826 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=7 txId=0x98c22598c5e2d8586a2ab2929304223a76c6ba14ad055b83260d0fcea455d937 @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 RESULT: PASS Transfer And Approve Tokens - 0xaffa4d3a80add8ce4018540e056dacb649589394
-RESULT: transferAndApproveTokens1_0xaffa4d3a80add8ce4018540e056dacb649589394 status=0x1 Success gas=100000 gasUsed=52252 costETH=0.00052252 costUSD=0.3588353848 @ ETH/USD=686.74 gasPrice=10 gwei block=20127 txIx=3 txId=0x7c16d7487d6107061cf325f4b3f9b8b03be1954c0f46588e711fcff1bd558ab5 @ 1526977193 Tue, 22 May 2018 08:19:53 UTC
+RESULT: transferAndApproveTokens1_0xaffa4d3a80add8ce4018540e056dacb649589394 status=0x1 Success gas=100000 gasUsed=52252 costETH=0.00052252 costUSD=0.3588353848 @ ETH/USD=686.74 gasPrice=10 gwei block=20441 txIx=6 txId=0x448d292920f52e8dfb5f9f4f5aa5075b72a0b57cf4085faecb9d14831f3c3386 @ 1526977507 Tue, 22 May 2018 08:25:07 UTC
 undefined
 > 
-RESULT: subscriptionContractAddress=0x4c01da023142a1b222d185880f75cbb78916ac99
+RESULT: subscriptionContractAddress=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140
 RESULT: subscription.VERSION=0.1
 RESULT: subscription.MAX_FEDERATION_MEMBERS=100
-RESULT: subscription.orbs=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: subscription.orbs=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: subscription.minimalMonthlySubscription=10 tokens
 RESULT: subscription.EMPTY=0x0000000000000000000000000000000000000000000000000000000000000000
 RESULT: subscription.federationMembers[0]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
@@ -474,39 +476,41 @@ RESULT: subscription.federationMembers[7]=0xaaaa9de1e6c564446ebca0fd102d8bd92093
 RESULT: subscription.federationMembers[8]=0xabba43e7594e3b76afb157989e93c6621497fd4b
 RESULT: subscription.federationMembers[9]=0xacca534c9f62ab495bd986e002ddf0f054caae4f
 RESULT: subscription.federationMembers[10]=0xadda9b762a00ff12711113bfdc36958b73d7f915
+RESULT: subscription.federationMembers[11]=0xaeea63b5479b50f79583ec49dacdcf86ddeff392
+RESULT: subscription.federationMembers[12]=0xaffa4d3a80add8ce4018540e056dacb649589394
 undefined
 > 
-RESULT: tokenContractAddress=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: tokenContractAddress=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: token.symbol=ORBS
 RESULT: token.name=Orbs
 RESULT: token.decimals=18
 RESULT: token.totalSupply=10000000000
-RESULT: Approval 0 #20126 owner=0xa44a08d3f6933c69212114bb66e2df1813651844 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 1 #20126 owner=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 2 #20126 owner=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 3 #20126 owner=0xa55a151eb00fded1634d27d1127b4be4627079ea spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 4 #20127 owner=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 5 #20127 owner=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 6 #20127 owner=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 7 #20127 owner=0xabba43e7594e3b76afb157989e93c6621497fd4b spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 8 #20127 owner=0xadda9b762a00ff12711113bfdc36958b73d7f915 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 9 #20127 owner=0xacca534c9f62ab495bd986e002ddf0f054caae4f spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 10 #20127 owner=0xa88a05d2b88283ce84c8325760b72a64591279a2 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 11 #20127 owner=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Approval 12 #20127 owner=0xaffa4d3a80add8ce4018540e056dacb649589394 spender=0x4c01da023142a1b222d185880f75cbb78916ac99 value=10000
-RESULT: Transfer 0 #20126: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 value=10000
-RESULT: Transfer 1 #20126: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa44a08d3f6933c69212114bb66e2df1813651844 value=10000
-RESULT: Transfer 2 #20126: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa55a151eb00fded1634d27d1127b4be4627079ea value=10000
-RESULT: Transfer 3 #20126: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 value=10000
-RESULT: Transfer 4 #20126: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec value=10000
-RESULT: Transfer 5 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa88a05d2b88283ce84c8325760b72a64591279a2 value=10000
-RESULT: Transfer 6 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 value=10000
-RESULT: Transfer 7 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 value=10000
-RESULT: Transfer 8 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xabba43e7594e3b76afb157989e93c6621497fd4b value=10000
-RESULT: Transfer 9 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xacca534c9f62ab495bd986e002ddf0f054caae4f value=10000
-RESULT: Transfer 10 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xadda9b762a00ff12711113bfdc36958b73d7f915 value=10000
-RESULT: Transfer 11 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 value=10000
-RESULT: Transfer 12 #20127: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xaffa4d3a80add8ce4018540e056dacb649589394 value=10000
+RESULT: Approval 0 #20441 owner=0xa88a05d2b88283ce84c8325760b72a64591279a2 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 1 #20441 owner=0xa44a08d3f6933c69212114bb66e2df1813651844 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 2 #20441 owner=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 3 #20441 owner=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 4 #20441 owner=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 5 #20441 owner=0xa55a151eb00fded1634d27d1127b4be4627079ea spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 6 #20442 owner=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 7 #20442 owner=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 8 #20442 owner=0xadda9b762a00ff12711113bfdc36958b73d7f915 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 9 #20442 owner=0xacca534c9f62ab495bd986e002ddf0f054caae4f spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 10 #20442 owner=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 11 #20442 owner=0xabba43e7594e3b76afb157989e93c6621497fd4b spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Approval 12 #20442 owner=0xaffa4d3a80add8ce4018540e056dacb649589394 spender=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=10000
+RESULT: Transfer 0 #20441: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 value=10000
+RESULT: Transfer 1 #20441: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa44a08d3f6933c69212114bb66e2df1813651844 value=10000
+RESULT: Transfer 2 #20441: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa55a151eb00fded1634d27d1127b4be4627079ea value=10000
+RESULT: Transfer 3 #20441: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 value=10000
+RESULT: Transfer 4 #20441: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec value=10000
+RESULT: Transfer 5 #20441: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa88a05d2b88283ce84c8325760b72a64591279a2 value=10000
+RESULT: Transfer 6 #20441: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 value=10000
+RESULT: Transfer 7 #20442: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 value=10000
+RESULT: Transfer 8 #20442: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xabba43e7594e3b76afb157989e93c6621497fd4b value=10000
+RESULT: Transfer 9 #20442: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xacca534c9f62ab495bd986e002ddf0f054caae4f value=10000
+RESULT: Transfer 10 #20442: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xadda9b762a00ff12711113bfdc36958b73d7f915 value=10000
+RESULT: Transfer 11 #20442: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 value=10000
+RESULT: Transfer 12 #20442: from=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 to=0xaffa4d3a80add8ce4018540e056dacb649589394 value=10000
 undefined
 > 
 RESULT: 
@@ -544,8 +548,8 @@ RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.07078117000000000
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.036959510000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       -0.006799800000000000  9999870000.000000000000000000 Account #2 - Token Distributor
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.002055380000000000        9000.000000000000000000 Account #3 - Federation Member #1
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.002055380000000000        8896.000000000000000000 Account #4 - Federation Member #2
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.002355380000000000        8794.000000000000000000 Account #5 - Federation Member #3
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.002355380000000000        8896.000000000000000000 Account #4 - Federation Member #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.002055380000000000        8794.000000000000000000 Account #5 - Federation Member #3
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.002055380000000000        8693.000000000000000000 Account #6 - Federation Member #4
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.002055380000000000        8591.000000000000000000 Account #7 - Federation Member #5
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.002055380000000000        8492.000000000000000000 Account #8 - Federation Member #6
@@ -556,9 +560,9 @@ RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f       -0.00205538000000000
 RESULT: 13 0xadda9b762a00ff12711113bfdc36958b73d7f915       -0.002056020000000000        7996.000000000000000000 Account #13 - Federation Member #11
 RESULT: 14 0xaeea63b5479b50f79583ec49dacdcf86ddeff392       -0.002056020000000000        7892.000000000000000000 Account #14 - Federation Member #12
 RESULT: 15 0xaffa4d3a80add8ce4018540e056dacb649589394       -0.002056020000000000        7793.000000000000000000 Account #15 - Federation Member #13
-RESULT: 16 0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512        0.000000000000000000           0.000000000000000000 DateTime Library
-RESULT: 17 0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
-RESULT: 18 0x4c01da023142a1b222d185880f75cbb78916ac99        0.000000000000000000       20877.000000000000000000 SubscriptionBilling Contract
+RESULT: 16 0xf073db038c467b3cc774fbd95fb4fafa37caa90e        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 17 0x5b7fb35f3f70a189e940bce616b67d870f600d35        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+RESULT: 18 0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140        0.000000000000000000       20877.000000000000000000 SubscriptionBilling Contract
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                           10000000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -574,37 +578,37 @@ undefined
 ...... 
 ...... 
 RESULT: PASS Subscribe - 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
-RESULT: subscribe1_0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=5 txId=0x141b326a813e4eb5abeac76526566e7db2943331e0b7cbb8103e6da2741cc5d3 @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20446 txIx=1 txId=0x3d44536c6342dc5cc383acee4c325d5b0546d46dcabe3fc4818489d1808f43d3 @ 1526977512 Tue, 22 May 2018 08:25:12 UTC
 RESULT: PASS Subscribe - 0xa44a08d3f6933c69212114bb66e2df1813651844
-RESULT: subscribe1_0xa44a08d3f6933c69212114bb66e2df1813651844 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=4 txId=0xb4b390fccff53cf193bc007f4e670caefd61896d40bc6c6afedadcb87e3409bf @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xa44a08d3f6933c69212114bb66e2df1813651844 status=0x1 Success gas=300000 gasUsed=189789 costETH=0.00189789 costUSD=1.3033569786 @ ETH/USD=686.74 gasPrice=10 gwei block=20446 txIx=0 txId=0x3986803deb815283585dca350773cec9f54691d83570f94567bda6999cf19247 @ 1526977512 Tue, 22 May 2018 08:25:12 UTC
 RESULT: PASS Subscribe - 0xa55a151eb00fded1634d27d1127b4be4627079ea
-RESULT: subscribe1_0xa55a151eb00fded1634d27d1127b4be4627079ea status=0x1 Success gas=300000 gasUsed=189789 costETH=0.00189789 costUSD=1.3033569786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=0 txId=0x1e046892f0e2bd0025bde98ac55101fbb99421a81b37db6ebd6b647898f2c587 @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xa55a151eb00fded1634d27d1127b4be4627079ea status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=2 txId=0x6e4984985dfb32e38ac48c455239375b319d5d26d6d8192be2dacee457578908 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9
-RESULT: subscribe1_0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=11 txId=0x0ba8b8484382a0a4568acb1de563228284d072607f1d1038a3e58ff19dafe1d0 @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=5 txId=0x546ba1516e38d2d704f19744dc185175f3896e1af49d66e8d0a32488fbbf5ea1 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec
-RESULT: subscribe1_0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=6 txId=0x734300069e9c159fcbec43aa026762ee3252e19caadb6d5c3f969737830b439b @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=4 txId=0x9314576a8abb87c4d1248f8424780984ee113ad70ed44821449c56834d2d3fd1 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xa88a05d2b88283ce84c8325760b72a64591279a2
-RESULT: subscribe1_0xa88a05d2b88283ce84c8325760b72a64591279a2 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=3 txId=0x354939fe949536195085adfdcece4ab123c1df4e2d8d3dd7ad966c512fe9c011 @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xa88a05d2b88283ce84c8325760b72a64591279a2 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=3 txId=0x37d964b5796ae22ab9a14c6f01cdb7678e836ca7fb2c3dfd3f1d03cd790b2b63 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0
-RESULT: subscribe1_0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=8 txId=0x25f8f5539fbdea70252eed0bf24177b5755c543a48433e731bcf6e26e6dfb6aa @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=9 txId=0xd64a70edcdf5709748997231b928fb1e6a021023910f008dc365569eb8b4db88 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756
-RESULT: subscribe1_0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=1 txId=0x18ef0a34bc1e621dbe6963586657bfcd09a77d693c6e209bb76c61cd4c4e561b @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=6 txId=0xb4bb21bf2eeb4d01e8a342f1691da8569474080fd47030c167a68c76743d9a1e @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xabba43e7594e3b76afb157989e93c6621497fd4b
-RESULT: subscribe1_0xabba43e7594e3b76afb157989e93c6621497fd4b status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=7 txId=0x502a26c88210c2e33d2cae367033ba7c4e832aef1ab57a7dc3e870d068db6a65 @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xabba43e7594e3b76afb157989e93c6621497fd4b status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=7 txId=0xf0cb3a5ba4262a6c91c0dcd248e357280c47257055cd9544be30e1dd99b83c79 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xacca534c9f62ab495bd986e002ddf0f054caae4f
-RESULT: subscribe1_0xacca534c9f62ab495bd986e002ddf0f054caae4f status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=2 txId=0x22480413ca4d03f9482e30fc7e8a8f4272e7350e478359adb93c3d0dd010d0a4 @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xacca534c9f62ab495bd986e002ddf0f054caae4f status=0x1 Success gas=300000 gasUsed=159789 costETH=0.00159789 costUSD=1.0973349786 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=1 txId=0xc8ce28c1e4b603e85850103c5ef2788d6e374b6833f2a6c0bfeb00a4c06ad247 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xadda9b762a00ff12711113bfdc36958b73d7f915
-RESULT: subscribe1_0xadda9b762a00ff12711113bfdc36958b73d7f915 status=0x1 Success gas=300000 gasUsed=159853 costETH=0.00159853 costUSD=1.0977744922 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=12 txId=0x04f07f4234171c5de4604757355f55bb9ca09eb6dd1244dbeb8c8aa0a2880c8b @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xadda9b762a00ff12711113bfdc36958b73d7f915 status=0x1 Success gas=300000 gasUsed=159853 costETH=0.00159853 costUSD=1.0977744922 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=0 txId=0x346b7a2470ed6ee211467b51b774039de1a0efd99713226c8d16037ce6714506 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xaeea63b5479b50f79583ec49dacdcf86ddeff392
-RESULT: subscribe1_0xaeea63b5479b50f79583ec49dacdcf86ddeff392 status=0x1 Success gas=300000 gasUsed=159853 costETH=0.00159853 costUSD=1.0977744922 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=10 txId=0x4e14d49abe9b431b4aced7c289d97dc0855507adc2dd93b53fc7266832c7e2ad @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xaeea63b5479b50f79583ec49dacdcf86ddeff392 status=0x1 Success gas=300000 gasUsed=159853 costETH=0.00159853 costUSD=1.0977744922 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=8 txId=0x71f3609368a6059487ed960d84d1b80195920d0726dcce3bbcf93fb378945692 @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 RESULT: PASS Subscribe - 0xaffa4d3a80add8ce4018540e056dacb649589394
-RESULT: subscribe1_0xaffa4d3a80add8ce4018540e056dacb649589394 status=0x1 Success gas=300000 gasUsed=159853 costETH=0.00159853 costUSD=1.0977744922 @ ETH/USD=686.74 gasPrice=10 gwei block=20131 txIx=9 txId=0xa8c43da5e8a65a7b8a06d5ae99441034526ae199f8dcb215ae171487f6740c5b @ 1526977197 Tue, 22 May 2018 08:19:57 UTC
+RESULT: subscribe1_0xaffa4d3a80add8ce4018540e056dacb649589394 status=0x1 Success gas=300000 gasUsed=159853 costETH=0.00159853 costUSD=1.0977744922 @ ETH/USD=686.74 gasPrice=10 gwei block=20447 txIx=10 txId=0x8c4df57f8767be8549783c410483207537fa1b02a168a141846174b2bb07b53d @ 1526977513 Tue, 22 May 2018 08:25:13 UTC
 undefined
 > 
-RESULT: subscriptionContractAddress=0x4c01da023142a1b222d185880f75cbb78916ac99
+RESULT: subscriptionContractAddress=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140
 RESULT: subscription.VERSION=0.1
 RESULT: subscription.MAX_FEDERATION_MEMBERS=100
-RESULT: subscription.orbs=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: subscription.orbs=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: subscription.minimalMonthlySubscription=10 tokens
 RESULT: subscription.EMPTY=0x0000000000000000000000000000000000000000000000000000000000000000
 RESULT: subscription.federationMembers[0]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
@@ -618,26 +622,28 @@ RESULT: subscription.federationMembers[7]=0xaaaa9de1e6c564446ebca0fd102d8bd92093
 RESULT: subscription.federationMembers[8]=0xabba43e7594e3b76afb157989e93c6621497fd4b
 RESULT: subscription.federationMembers[9]=0xacca534c9f62ab495bd986e002ddf0f054caae4f
 RESULT: subscription.federationMembers[10]=0xadda9b762a00ff12711113bfdc36958b73d7f915
+RESULT: subscription.federationMembers[11]=0xaeea63b5479b50f79583ec49dacdcf86ddeff392
+RESULT: subscription.federationMembers[12]=0xaffa4d3a80add8ce4018540e056dacb649589394
 undefined
 > 
-RESULT: tokenContractAddress=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: tokenContractAddress=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: token.symbol=ORBS
 RESULT: token.name=Orbs
 RESULT: token.decimals=18
 RESULT: token.totalSupply=10000000000
-RESULT: Transfer 0 #20131: from=0xa55a151eb00fded1634d27d1127b4be4627079ea to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1206
-RESULT: Transfer 1 #20131: from=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1704
-RESULT: Transfer 2 #20131: from=0xacca534c9f62ab495bd986e002ddf0f054caae4f to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1907
-RESULT: Transfer 3 #20131: from=0xa88a05d2b88283ce84c8325760b72a64591279a2 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1508
-RESULT: Transfer 4 #20131: from=0xa44a08d3f6933c69212114bb66e2df1813651844 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1104
-RESULT: Transfer 5 #20131: from=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1000
-RESULT: Transfer 6 #20131: from=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1409
-RESULT: Transfer 7 #20131: from=0xabba43e7594e3b76afb157989e93c6621497fd4b to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1806
-RESULT: Transfer 8 #20131: from=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1607
-RESULT: Transfer 9 #20131: from=0xaffa4d3a80add8ce4018540e056dacb649589394 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=2207
-RESULT: Transfer 10 #20131: from=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=2108
-RESULT: Transfer 11 #20131: from=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=1307
-RESULT: Transfer 12 #20131: from=0xadda9b762a00ff12711113bfdc36958b73d7f915 to=0x4c01da023142a1b222d185880f75cbb78916ac99 value=2004
+RESULT: Transfer 0 #20446: from=0xa44a08d3f6933c69212114bb66e2df1813651844 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1104
+RESULT: Transfer 1 #20446: from=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1000
+RESULT: Transfer 2 #20447: from=0xadda9b762a00ff12711113bfdc36958b73d7f915 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=2004
+RESULT: Transfer 3 #20447: from=0xacca534c9f62ab495bd986e002ddf0f054caae4f to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1907
+RESULT: Transfer 4 #20447: from=0xa55a151eb00fded1634d27d1127b4be4627079ea to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1206
+RESULT: Transfer 5 #20447: from=0xa88a05d2b88283ce84c8325760b72a64591279a2 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1508
+RESULT: Transfer 6 #20447: from=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1409
+RESULT: Transfer 7 #20447: from=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1307
+RESULT: Transfer 8 #20447: from=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1704
+RESULT: Transfer 9 #20447: from=0xabba43e7594e3b76afb157989e93c6621497fd4b to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1806
+RESULT: Transfer 10 #20447: from=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=2108
+RESULT: Transfer 11 #20447: from=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=1607
+RESULT: Transfer 12 #20447: from=0xaffa4d3a80add8ce4018540e056dacb649589394 to=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 value=2207
 undefined
 > 
 RESULT: 
@@ -665,8 +671,8 @@ RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.07464545000000000
 RESULT:  1 0xa11aae29840fbb5c86e6fd4cf809eba183aef433       -0.040823790000000000           0.000000000000000000 Account #1 - Contract Owner
 RESULT:  2 0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976       -0.006799800000000000  9999870000.000000000000000000 Account #2 - Token Distributor
 RESULT:  3 0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0       -0.002055380000000000       10605.923076923076923088 Account #3 - Federation Member #1
-RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.002055380000000000       10501.923076923076923076 Account #4 - Federation Member #2
-RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.002355380000000000       10399.923076923076923076 Account #5 - Federation Member #3
+RESULT:  4 0xa44a08d3f6933c69212114bb66e2df1813651844       -0.002355380000000000       10501.923076923076923076 Account #4 - Federation Member #2
+RESULT:  5 0xa55a151eb00fded1634d27d1127b4be4627079ea       -0.002055380000000000       10399.923076923076923076 Account #5 - Federation Member #3
 RESULT:  6 0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9       -0.002055380000000000       10298.923076923076923076 Account #6 - Federation Member #4
 RESULT:  7 0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec       -0.002055380000000000       10196.923076923076923076 Account #7 - Federation Member #5
 RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2       -0.002055380000000000       10097.923076923076923076 Account #8 - Federation Member #6
@@ -677,25 +683,25 @@ RESULT: 12 0xacca534c9f62ab495bd986e002ddf0f054caae4f       -0.00205538000000000
 RESULT: 13 0xadda9b762a00ff12711113bfdc36958b73d7f915       -0.002056020000000000        9601.923076923076923076 Account #13 - Federation Member #11
 RESULT: 14 0xaeea63b5479b50f79583ec49dacdcf86ddeff392       -0.002056020000000000        9497.923076923076923076 Account #14 - Federation Member #12
 RESULT: 15 0xaffa4d3a80add8ce4018540e056dacb649589394       -0.002056020000000000        9398.923076923076923076 Account #15 - Federation Member #13
-RESULT: 16 0xe8291b4dc4c7bfa6046b4502fc4a0465eff4a512        0.000000000000000000           0.000000000000000000 DateTime Library
-RESULT: 17 0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
-RESULT: 18 0x4c01da023142a1b222d185880f75cbb78916ac99        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
+RESULT: 16 0xf073db038c467b3cc774fbd95fb4fafa37caa90e        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 17 0x5b7fb35f3f70a189e940bce616b67d870f600d35        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+RESULT: 18 0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                           10000000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT: 
 undefined
 > 
-RESULT: distributeFees1_1Tx status=0x1 Success gas=1000000 gasUsed=386428 costETH=0.00386428 costUSD=2.6537556472 @ ETH/USD=686.74 gasPrice=10 gwei block=20135 txIx=0 txId=0x16610a574f04146ed18ca78ee64928424253290f4051aba23bd1621f74de6b8f @ 1526977201 Tue, 22 May 2018 08:20:01 UTC
+RESULT: distributeFees1_1Tx status=0x1 Success gas=1000000 gasUsed=386428 costETH=0.00386428 costUSD=2.6537556472 @ ETH/USD=686.74 gasPrice=10 gwei block=20456 txIx=0 txId=0x260536c3aa13e37e53c501810381ecfee5df71db9ce34154879c0f1f98ef1302 @ 1526977522 Tue, 22 May 2018 08:25:22 UTC
 undefined
 > 
 RESULT: PASS Distribute Fees
 1
 > 
-RESULT: subscriptionContractAddress=0x4c01da023142a1b222d185880f75cbb78916ac99
+RESULT: subscriptionContractAddress=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140
 RESULT: subscription.VERSION=0.1
 RESULT: subscription.MAX_FEDERATION_MEMBERS=100
-RESULT: subscription.orbs=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: subscription.orbs=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: subscription.minimalMonthlySubscription=10 tokens
 RESULT: subscription.EMPTY=0x0000000000000000000000000000000000000000000000000000000000000000
 RESULT: subscription.federationMembers[0]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
@@ -709,29 +715,32 @@ RESULT: subscription.federationMembers[7]=0xaaaa9de1e6c564446ebca0fd102d8bd92093
 RESULT: subscription.federationMembers[8]=0xabba43e7594e3b76afb157989e93c6621497fd4b
 RESULT: subscription.federationMembers[9]=0xacca534c9f62ab495bd986e002ddf0f054caae4f
 RESULT: subscription.federationMembers[10]=0xadda9b762a00ff12711113bfdc36958b73d7f915
+RESULT: subscription.federationMembers[11]=0xaeea63b5479b50f79583ec49dacdcf86ddeff392
+RESULT: subscription.federationMembers[12]=0xaffa4d3a80add8ce4018540e056dacb649589394
 undefined
 > 
-RESULT: tokenContractAddress=0x34f34f5d54c022463622b9e9bc77b10edd2b5b3f
+RESULT: tokenContractAddress=0x5b7fb35f3f70a189e940bce616b67d870f600d35
 RESULT: token.symbol=ORBS
 RESULT: token.name=Orbs
 RESULT: token.decimals=18
 RESULT: token.totalSupply=10000000000
-RESULT: Transfer 0 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 value=1605.923076923076923088
-RESULT: Transfer 1 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xa44a08d3f6933c69212114bb66e2df1813651844 value=1605.923076923076923076
-RESULT: Transfer 2 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xa55a151eb00fded1634d27d1127b4be4627079ea value=1605.923076923076923076
-RESULT: Transfer 3 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 value=1605.923076923076923076
-RESULT: Transfer 4 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec value=1605.923076923076923076
-RESULT: Transfer 5 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xa88a05d2b88283ce84c8325760b72a64591279a2 value=1605.923076923076923076
-RESULT: Transfer 6 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 value=1605.923076923076923076
-RESULT: Transfer 7 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 value=1605.923076923076923076
-RESULT: Transfer 8 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xabba43e7594e3b76afb157989e93c6621497fd4b value=1605.923076923076923076
-RESULT: Transfer 9 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xacca534c9f62ab495bd986e002ddf0f054caae4f value=1605.923076923076923076
-RESULT: Transfer 10 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xadda9b762a00ff12711113bfdc36958b73d7f915 value=1605.923076923076923076
-RESULT: Transfer 11 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 value=1605.923076923076923076
-RESULT: Transfer 12 #20135: from=0x4c01da023142a1b222d185880f75cbb78916ac99 to=0xaffa4d3a80add8ce4018540e056dacb649589394 value=1605.923076923076923076
+RESULT: Transfer 0 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0 value=1605.923076923076923088
+RESULT: Transfer 1 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xa44a08d3f6933c69212114bb66e2df1813651844 value=1605.923076923076923076
+RESULT: Transfer 2 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xa55a151eb00fded1634d27d1127b4be4627079ea value=1605.923076923076923076
+RESULT: Transfer 3 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9 value=1605.923076923076923076
+RESULT: Transfer 4 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xa77a2b9d4b1c010a22a7c565dc418cef683dbcec value=1605.923076923076923076
+RESULT: Transfer 5 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xa88a05d2b88283ce84c8325760b72a64591279a2 value=1605.923076923076923076
+RESULT: Transfer 6 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xa99a0ae3354c06b1459fd441a32a3f71005d7da0 value=1605.923076923076923076
+RESULT: Transfer 7 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xaaaa9de1e6c564446ebca0fd102d8bd92093c756 value=1605.923076923076923076
+RESULT: Transfer 8 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xabba43e7594e3b76afb157989e93c6621497fd4b value=1605.923076923076923076
+RESULT: Transfer 9 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xacca534c9f62ab495bd986e002ddf0f054caae4f value=1605.923076923076923076
+RESULT: Transfer 10 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xadda9b762a00ff12711113bfdc36958b73d7f915 value=1605.923076923076923076
+RESULT: Transfer 11 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xaeea63b5479b50f79583ec49dacdcf86ddeff392 value=1605.923076923076923076
+RESULT: Transfer 12 #20456: from=0x9dbfe5e826de3d38b5f7eeb359a702e7d62ee140 to=0xaffa4d3a80add8ce4018540e056dacb649589394 value=1605.923076923076923076
 undefined
 > 
 RESULT: 
 undefined
+> 
 > 
 > 
