@@ -185,7 +185,7 @@ var subscription = subscriptionContract.new(tokenAddress, federationMembers, min
       } else {
         subscriptionAddress = contract.address;
         addAccount(subscriptionAddress, "SubscriptionBilling Contract");
-        addCrowdsaleContractAddressAndAbi(subscriptionAddress, subscriptionAbi);
+        addSubscriptionContractAddressAndAbi(subscriptionAddress, subscriptionAbi);
         console.log("DATA: subscriptionAddress=" + subscriptionAddress);
       }
     }
@@ -196,7 +196,7 @@ while (txpool.status.pending > 0) {
 printBalances();
 failIfTxStatusError(subscriptionTx, subscriptionMessage);
 printTxData("subscriptionAddress=" + subscriptionAddress, subscriptionTx);
-printCrowdsaleContractDetails();
+printSubscriptionContractDetails();
 printTokenContractDetails();
 console.log("RESULT: ");
 

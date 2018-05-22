@@ -279,37 +279,13 @@ function printTokenContractDetails() {
   if (tokenContractAddress != null && tokenContractAbi != null) {
     var contract = eth.contract(tokenContractAbi).at(tokenContractAddress);
     var decimals = contract.decimals();
-    console.log("RESULT: token.owner=" + contract.owner());
     console.log("RESULT: token.symbol=" + contract.symbol());
     console.log("RESULT: token.name=" + contract.name());
     console.log("RESULT: token.decimals=" + decimals);
     console.log("RESULT: token.totalSupply=" + contract.totalSupply().shift(-decimals));
-    console.log("RESULT: token.mintingFinished=" + contract.mintingFinished());
-    console.log("RESULT: token.active=" + contract.active());
 
     var latestBlock = eth.blockNumber;
     var i;
-
-    var ownershipTransferredEvents = contract.OwnershipTransferred({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
-    i = 0;
-    ownershipTransferredEvents.watch(function (error, result) {
-      console.log("RESULT: OwnershipTransferred " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
-    });
-    ownershipTransferredEvents.stopWatching();
-
-    var mintEvents = contract.Mint({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
-    i = 0;
-    mintEvents.watch(function (error, result) {
-      console.log("RESULT: Mint " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
-    });
-    mintEvents.stopWatching();
-
-    var mintFinishedEvents = contract.MintFinished({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
-    i = 0;
-    mintFinishedEvents.watch(function (error, result) {
-      console.log("RESULT: MintFinished " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
-    });
-    mintFinishedEvents.stopWatching();
 
     var approvalEvents = contract.Approval({}, { fromBlock: tokenFromBlock, toBlock: latestBlock });
     i = 0;
@@ -333,52 +309,49 @@ function printTokenContractDetails() {
 
 
 // -----------------------------------------------------------------------------
-// Crowdsale Contract
+// Subscription Contract
 // -----------------------------------------------------------------------------
-var crowdsaleContractAddress = null;
-var crowdsaleContractAbi = null;
+var subscriptionContractAddress = null;
+var subscriptionContractAbi = null;
 
-function addCrowdsaleContractAddressAndAbi(address, crowdsaleAbi) {
-  crowdsaleContractAddress = address;
-  crowdsaleContractAbi = crowdsaleAbi;
+function addSubscriptionContractAddressAndAbi(address, subscriptionAbi) {
+  subscriptionContractAddress = address;
+  subscriptionContractAbi = subscriptionAbi;
 }
 
-var crowdsaleFromBlock = 0;
-function printCrowdsaleContractDetails() {
-  console.log("RESULT: crowdsaleContractAddress=" + crowdsaleContractAddress);
-  if (crowdsaleContractAddress != null && crowdsaleContractAbi != null) {
-    var contract = eth.contract(crowdsaleContractAbi).at(crowdsaleContractAddress);
-    console.log("RESULT: crowdsale.owner=" + contract.owner());
-    console.log("RESULT: crowdsale.token=" + contract.token());
-    console.log("RESULT: crowdsale.wallet=" + contract.wallet());
-    console.log("RESULT: crowdsale.rate=" + contract.rate());
-    // mapping (address => WhiteListRecord) public whiteList;
-    console.log("RESULT: crowdsale.initialTime=" + contract.initialTime() + " " + new Date(contract.initialTime() * 1000).toUTCString() + " " + new Date(contract.initialTime() * 1000).toString());
-    console.log("RESULT: crowdsale.saleClosed=" + contract.saleClosed());
-    console.log("RESULT: crowdsale.weiCap=" + contract.weiCap().shift(-18) + " ETH");
-    console.log("RESULT: crowdsale.weiRaised=" + contract.weiRaised().shift(-18) + " ETH");
-    console.log("RESULT: crowdsale.TOTAL_TOKEN_SUPPLY=" + contract.TOTAL_TOKEN_SUPPLY().shift(-18) + " tokens");
+var subscriptionFromBlock = 0;
+function printSubscriptionContractDetails() {
+  console.log("RESULT: subscriptionContractAddress=" + subscriptionContractAddress);
+  if (subscriptionContractAddress != null && subscriptionContractAbi != null) {
+    var contract = eth.contract(subscriptionContractAbi).at(subscriptionContractAddress);
+    console.log("RESULT: subscription.VERSION=" + contract.VERSION());
+    console.log("RESULT: subscription.MAX_FEDERATION_MEMBERS=" + contract.MAX_FEDERATION_MEMBERS());
+    console.log("RESULT: subscription.orbs=" + contract.orbs());
+    console.log("RESULT: subscription.federationMembers[0]=" + contract.federationMembers(0));
+    console.log("RESULT: subscription.federationMembers[1]=" + contract.federationMembers(1));
+    console.log("RESULT: subscription.federationMembers[2]=" + contract.federationMembers(2));
+    console.log("RESULT: subscription.federationMembers[3]=" + contract.federationMembers(3));
+    console.log("RESULT: subscription.minimalMonthlySubscription=" + contract.minimalMonthlySubscription().shift(-18) + " ETH");
+    console.log("RESULT: subscription.EMPTY=" + contract.EMPTY());
 
     var latestBlock = eth.blockNumber;
     var i;
 
-    var ownershipTransferredEvents = contract.OwnershipTransferred({}, { fromBlock: crowdsaleFromBlock, toBlock: latestBlock });
+    var subscribedEvents = contract.Subscribed({}, { fromBlock: subscriptionFromBlock, toBlock: latestBlock });
     i = 0;
-    ownershipTransferredEvents.watch(function (error, result) {
-      console.log("RESULT: OwnershipTransferred " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
+    subscribedEvents.watch(function (error, result) {
+      console.log("RESULT: Subscribed " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
     });
-    ownershipTransferredEvents.stopWatching();
+    subscribedEvents.stopWatching();
 
-    var buyTokensEvents = contract.BuyTokens({}, { fromBlock: crowdsaleFromBlock, toBlock: latestBlock });
+    var distributedFeesEvents = contract.DistributedFees({}, { fromBlock: subscriptionFromBlock, toBlock: latestBlock });
     i = 0;
-    buyTokensEvents.watch(function (error, result) {
-      console.log("RESULT: BuyTokens " + i++ + " #" + result.blockNumber + " beneficiary=" +
-        result.args.beneficiary + "; weiAmount" + result.args.weiAmount.shift(-18) + " ETH; rate=" + result.args.rate +
-        "; token=" + result.args.token.shift(-18) + " tokens");
+    distributedFeesEvents.watch(function (error, result) {
+      console.log("RESULT: DistributedFees " + i++ + " #" + result.blockNumber + " " + JSON.stringify(result.args));
     });
-    buyTokensEvents.stopWatching();
+    distributedFeesEvents.stopWatching();
 
-    crowdsaleFromBlock = latestBlock + 1;
+    subscriptionFromBlock = latestBlock + 1;
   }
 }
 

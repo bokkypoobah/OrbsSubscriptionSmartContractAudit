@@ -32,13 +32,13 @@
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-12 0x94ed3af45741cb4d67d12006373ecbbe265f958d        0.000000000000000000           0.000000000000000000 DateTime Library
+12 0x27daa9fe81944d721dc95e09f54c8bd3a90a5603        0.000000000000000000           0.000000000000000000 DateTime Library
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                                     0.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Deploy DateTime Library
-libDateTimeAddress=0x94ed3af45741cb4d67d12006373ecbbe265f958d status=0x1 Success gas=6000000 gasUsed=845412 costETH=0.00845412 costUSD=5.8057823688 @ ETH/USD=686.74 gasPrice=10 gwei block=4551 txIx=0 txId=0x52836447aff81b9d4ae8473f398d6598b45ab2f7f4ce6f364eb46821f7a3a8c1 @ 1526961617 Tue, 22 May 2018 04:00:17 UTC
+libDateTimeAddress=0x27daa9fe81944d721dc95e09f54c8bd3a90a5603 status=0x1 Success gas=6000000 gasUsed=845412 costETH=0.00845412 costUSD=5.8057823688 @ ETH/USD=686.74 gasPrice=10 gwei block=7874 txIx=0 txId=0x9247e8e8aa6e1841ba44fd9173959f8368f096d532dccfd2130d45377b249067 @ 1526964940 Tue, 22 May 2018 04:55:40 UTC
 
 ---------- Deploy Token Contract ----------
  # Account                                             EtherBalanceChange                          Token Name
@@ -55,20 +55,20 @@ libDateTimeAddress=0x94ed3af45741cb4d67d12006373ecbbe265f958d status=0x1 Success
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-12 0x94ed3af45741cb4d67d12006373ecbbe265f958d        0.000000000000000000           0.000000000000000000 DateTime Library
-13 0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+12 0x27daa9fe81944d721dc95e09f54c8bd3a90a5603        0.000000000000000000           0.000000000000000000 DateTime Library
+13 0x5029cacf1799deb161dc3ab611b2b368c06f15e8        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                           10000000000.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Deploy Token Contract
-tokenAddress=0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d status=0x1 Success gas=6000000 gasUsed=951354 costETH=0.00951354 costUSD=6.5333284596 @ ETH/USD=686.74 gasPrice=10 gwei block=4553 txIx=0 txId=0x04800ca9bd6eedbdc601b23119a3759c124f7282600a993e53c305250d35be4c @ 1526961619 Tue, 22 May 2018 04:00:19 UTC
-tokenContractAddress=0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d
-token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+tokenAddress=0x5029cacf1799deb161dc3ab611b2b368c06f15e8 status=0x1 Success gas=6000000 gasUsed=951354 costETH=0.00951354 costUSD=6.5333284596 @ ETH/USD=686.74 gasPrice=10 gwei block=7876 txIx=0 txId=0xee9de42f5a80defaf91048334e929a8714feea83af87ded5a96c16043387c672 @ 1526964942 Tue, 22 May 2018 04:55:42 UTC
+tokenContractAddress=0x5029cacf1799deb161dc3ab611b2b368c06f15e8
 token.symbol=ORBS
 token.name=Orbs
 token.decimals=18
 token.totalSupply=10000000000
+Transfer 0 #7876: from=0x0000000000000000000000000000000000000000 to=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 value=10000000000
 
 ---------- Deploy SubscriptionBilling Contract ----------
  # Account                                             EtherBalanceChange                          Token Name
@@ -85,19 +85,26 @@ token.totalSupply=10000000000
  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-12 0x94ed3af45741cb4d67d12006373ecbbe265f958d        0.000000000000000000           0.000000000000000000 DateTime Library
-13 0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
-14 0xf235febef748bc1586d8aea01f093012eea7b3c8        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
+12 0x27daa9fe81944d721dc95e09f54c8bd3a90a5603        0.000000000000000000           0.000000000000000000 DateTime Library
+13 0x5029cacf1799deb161dc3ab611b2b368c06f15e8        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+14 0x332ceb425309f4ab99839300329a9626983323be        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
                                                                           10000000000.000000000000000000 Total Token Balances
 -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 
 PASS Deploy SubscriptionBilling Contract
-subscriptionAddress=0xf235febef748bc1586d8aea01f093012eea7b3c8 status=0x1 Success gas=6000000 gasUsed=1676968 costETH=0.01676968 costUSD=11.5164100432 @ ETH/USD=686.74 gasPrice=10 gwei block=4556 txIx=0 txId=0xe465d8fb0f694786bf15b169a61f5923237a125aaeea2df8106cc1448c1779c1 @ 1526961622 Tue, 22 May 2018 04:00:22 UTC
-crowdsaleContractAddress=0xf235febef748bc1586d8aea01f093012eea7b3c8
-crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-tokenContractAddress=0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d
-token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+subscriptionAddress=0x332ceb425309f4ab99839300329a9626983323be status=0x1 Success gas=6000000 gasUsed=1676968 costETH=0.01676968 costUSD=11.5164100432 @ ETH/USD=686.74 gasPrice=10 gwei block=7879 txIx=0 txId=0xac71561c2559bc8cd6797485c0c2f293aeccb8edaf918306466557abcffdd718 @ 1526964945 Tue, 22 May 2018 04:55:45 UTC
+subscriptionContractAddress=0x332ceb425309f4ab99839300329a9626983323be
+subscription.VERSION=0.1
+subscription.MAX_FEDERATION_MEMBERS=100
+subscription.orbs=0x5029cacf1799deb161dc3ab611b2b368c06f15e8
+subscription.federationMembers[0]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+subscription.federationMembers[1]=0xa44a08d3f6933c69212114bb66e2df1813651844
+subscription.federationMembers[2]=0xa55a151eb00fded1634d27d1127b4be4627079ea
+subscription.federationMembers[3]=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9
+subscription.minimalMonthlySubscription=10 ETH
+subscription.EMPTY=0x0000000000000000000000000000000000000000000000000000000000000000
+tokenContractAddress=0x5029cacf1799deb161dc3ab611b2b368c06f15e8
 token.symbol=ORBS
 token.name=Orbs
 token.decimals=18

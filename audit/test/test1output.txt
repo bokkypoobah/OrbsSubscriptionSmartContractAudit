@@ -12,9 +12,9 @@ DEPLOYMENTDATA     = 'deploymentData.txt'
 INCLUDEJS          = './include.js'
 TEST1OUTPUT        = 'test1output.txt'
 TEST1RESULTS       = 'test1results.txt'
-CURRENTTIME        = '1526961607' 'Tue 22 May 2018 04:00:07 UTC'
-START_DATE         = '1526961637' 'Tue 22 May 2018 04:00:37 UTC'
-END_DATE           = '1526961697' 'Tue 22 May 2018 04:01:37 UTC'
+CURRENTTIME        = '1526964925' 'Tue 22 May 2018 04:55:25 UTC'
+START_DATE         = '1526964955' 'Tue 22 May 2018 04:55:55 UTC'
+END_DATE           = '1526965015' 'Tue 22 May 2018 04:56:55 UTC'
 --- Differences ../orbstoken-contracts/OrbsToken.sol OrbsToken.sol ---
 3,5c3,5
 < import "zeppelin-solidity/contracts/ownership/HasNoContracts.sol";
@@ -45,7 +45,7 @@ Welcome to the Geth JavaScript console!
 
 instance: Geth/v1.8.6-stable-12683fec/darwin-amd64/go1.10
 coinbase: 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e
-at block: 4541 (Tue, 22 May 2018 14:00:07 AEST)
+at block: 7860 (Tue, 22 May 2018 14:55:26 AEST)
  datadir: /Users/bok/Projects/OrbsSubscriptionSmartContractAudit/audit/test/testchain
  modules: admin:1.0 clique:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 rpc:1.0 shh:1.0 txpool:1.0 web3:1.0
 
@@ -143,7 +143,7 @@ undefined
 ... 
 undefined
 > 
-DATA: libDateTimeAddress=0x94ed3af45741cb4d67d12006373ecbbe265f958d
+DATA: libDateTimeAddress=0x27daa9fe81944d721dc95e09f54c8bd3a90a5603
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.008454120000000000           0.000000000000000000 Account #0 - Miner
@@ -158,7 +158,7 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0x94ed3af45741cb4d67d12006373ecbbe265f958d        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 12 0x27daa9fe81944d721dc95e09f54c8bd3a90a5603        0.000000000000000000           0.000000000000000000 DateTime Library
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                                     0.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -168,7 +168,7 @@ undefined
 RESULT: PASS Deploy DateTime Library
 1
 > 
-RESULT: libDateTimeAddress=0x94ed3af45741cb4d67d12006373ecbbe265f958d status=0x1 Success gas=6000000 gasUsed=845412 costETH=0.00845412 costUSD=5.8057823688 @ ETH/USD=686.74 gasPrice=10 gwei block=4551 txIx=0 txId=0x52836447aff81b9d4ae8473f398d6598b45ab2f7f4ce6f364eb46821f7a3a8c1 @ 1526961617 Tue, 22 May 2018 04:00:17 UTC
+RESULT: libDateTimeAddress=0x27daa9fe81944d721dc95e09f54c8bd3a90a5603 status=0x1 Success gas=6000000 gasUsed=845412 costETH=0.00845412 costUSD=5.8057823688 @ ETH/USD=686.74 gasPrice=10 gwei block=7874 txIx=0 txId=0x9247e8e8aa6e1841ba44fd9173959f8368f096d532dccfd2130d45377b249067 @ 1526964940 Tue, 22 May 2018 04:55:40 UTC
 undefined
 > 
 RESULT: 
@@ -209,7 +209,7 @@ undefined
 ... 
 undefined
 > 
-DATA: tokenAddress=0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d
+DATA: tokenAddress=0x5029cacf1799deb161dc3ab611b2b368c06f15e8
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.017967660000000000           0.000000000000000000 Account #0 - Miner
@@ -224,8 +224,8 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0x94ed3af45741cb4d67d12006373ecbbe265f958d        0.000000000000000000           0.000000000000000000 DateTime Library
-RESULT: 13 0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+RESULT: 12 0x27daa9fe81944d721dc95e09f54c8bd3a90a5603        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 13 0x5029cacf1799deb161dc3ab611b2b368c06f15e8        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                           10000000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -235,19 +235,16 @@ undefined
 RESULT: PASS Deploy Token Contract
 1
 > 
-RESULT: tokenAddress=0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d status=0x1 Success gas=6000000 gasUsed=951354 costETH=0.00951354 costUSD=6.5333284596 @ ETH/USD=686.74 gasPrice=10 gwei block=4553 txIx=0 txId=0x04800ca9bd6eedbdc601b23119a3759c124f7282600a993e53c305250d35be4c @ 1526961619 Tue, 22 May 2018 04:00:19 UTC
+RESULT: tokenAddress=0x5029cacf1799deb161dc3ab611b2b368c06f15e8 status=0x1 Success gas=6000000 gasUsed=951354 costETH=0.00951354 costUSD=6.5333284596 @ ETH/USD=686.74 gasPrice=10 gwei block=7876 txIx=0 txId=0xee9de42f5a80defaf91048334e929a8714feea83af87ded5a96c16043387c672 @ 1526964942 Tue, 22 May 2018 04:55:42 UTC
 undefined
 > 
-RESULT: tokenContractAddress=0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d
-RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: tokenContractAddress=0x5029cacf1799deb161dc3ab611b2b368c06f15e8
 RESULT: token.symbol=ORBS
 RESULT: token.name=Orbs
 RESULT: token.decimals=18
 RESULT: token.totalSupply=10000000000
-TypeError: 'mintingFinished' is not a function
-    at printTokenContractDetails (functions.js:287:52)
-    at <anonymous>:1:1
-
+RESULT: Transfer 0 #7876: from=0x0000000000000000000000000000000000000000 to=0xa22ab8a9d641ce77e06d98b7d7065d324d3d6976 value=10000000000
+undefined
 > 
 RESULT: 
 undefined
@@ -297,7 +294,7 @@ undefined
 ... 
 undefined
 > 
-DATA: subscriptionAddress=0xf235febef748bc1586d8aea01f093012eea7b3c8
+DATA: subscriptionAddress=0x332ceb425309f4ab99839300329a9626983323be
 RESULT:  # Account                                             EtherBalanceChange                          Token Name
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:  0 0xa00af22d07c87d96eeeb0ed583f8f6ac7812827e        0.034737340000000000           0.000000000000000000 Account #0 - Miner
@@ -312,9 +309,9 @@ RESULT:  8 0xa88a05d2b88283ce84c8325760b72a64591279a2        0.00000000000000000
 RESULT:  9 0xa99a0ae3354c06b1459fd441a32a3f71005d7da0        0.000000000000000000           0.000000000000000000 Account #9
 RESULT: 10 0xaaaa9de1e6c564446ebca0fd102d8bd92093c756        0.000000000000000000           0.000000000000000000 Account #10
 RESULT: 11 0xabba43e7594e3b76afb157989e93c6621497fd4b        0.000000000000000000           0.000000000000000000 Account #11
-RESULT: 12 0x94ed3af45741cb4d67d12006373ecbbe265f958d        0.000000000000000000           0.000000000000000000 DateTime Library
-RESULT: 13 0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
-RESULT: 14 0xf235febef748bc1586d8aea01f093012eea7b3c8        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
+RESULT: 12 0x27daa9fe81944d721dc95e09f54c8bd3a90a5603        0.000000000000000000           0.000000000000000000 DateTime Library
+RESULT: 13 0x5029cacf1799deb161dc3ab611b2b368c06f15e8        0.000000000000000000           0.000000000000000000 Token 'ORBS' 'Orbs'
+RESULT: 14 0x332ceb425309f4ab99839300329a9626983323be        0.000000000000000000           0.000000000000000000 SubscriptionBilling Contract
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
 RESULT:                                                                           10000000000.000000000000000000 Total Token Balances
 RESULT: -- ------------------------------------------ --------------------------- ------------------------------ ---------------------------
@@ -324,26 +321,27 @@ undefined
 RESULT: PASS Deploy SubscriptionBilling Contract
 1
 > 
-RESULT: subscriptionAddress=0xf235febef748bc1586d8aea01f093012eea7b3c8 status=0x1 Success gas=6000000 gasUsed=1676968 costETH=0.01676968 costUSD=11.5164100432 @ ETH/USD=686.74 gasPrice=10 gwei block=4556 txIx=0 txId=0xe465d8fb0f694786bf15b169a61f5923237a125aaeea2df8106cc1448c1779c1 @ 1526961622 Tue, 22 May 2018 04:00:22 UTC
+RESULT: subscriptionAddress=0x332ceb425309f4ab99839300329a9626983323be status=0x1 Success gas=6000000 gasUsed=1676968 costETH=0.01676968 costUSD=11.5164100432 @ ETH/USD=686.74 gasPrice=10 gwei block=7879 txIx=0 txId=0xac71561c2559bc8cd6797485c0c2f293aeccb8edaf918306466557abcffdd718 @ 1526964945 Tue, 22 May 2018 04:55:45 UTC
 undefined
 > 
-RESULT: crowdsaleContractAddress=0xf235febef748bc1586d8aea01f093012eea7b3c8
-RESULT: crowdsale.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
-TypeError: 'token' is not a function
-    at printCrowdsaleContractDetails (functions.js:352:46)
-    at <anonymous>:1:1
-
+RESULT: subscriptionContractAddress=0x332ceb425309f4ab99839300329a9626983323be
+RESULT: subscription.VERSION=0.1
+RESULT: subscription.MAX_FEDERATION_MEMBERS=100
+RESULT: subscription.orbs=0x5029cacf1799deb161dc3ab611b2b368c06f15e8
+RESULT: subscription.federationMembers[0]=0xa33a6c312d9ad0e0f2e95541beed0cc081621fd0
+RESULT: subscription.federationMembers[1]=0xa44a08d3f6933c69212114bb66e2df1813651844
+RESULT: subscription.federationMembers[2]=0xa55a151eb00fded1634d27d1127b4be4627079ea
+RESULT: subscription.federationMembers[3]=0xa66a85ede0cbe03694aa9d9de0bb19c99ff55bd9
+RESULT: subscription.minimalMonthlySubscription=10 ETH
+RESULT: subscription.EMPTY=0x0000000000000000000000000000000000000000000000000000000000000000
+undefined
 > 
-RESULT: tokenContractAddress=0xe6faa6fd9baba50ebb05eadc8fad293e4d30d32d
-RESULT: token.owner=0xa11aae29840fbb5c86e6fd4cf809eba183aef433
+RESULT: tokenContractAddress=0x5029cacf1799deb161dc3ab611b2b368c06f15e8
 RESULT: token.symbol=ORBS
 RESULT: token.name=Orbs
 RESULT: token.decimals=18
 RESULT: token.totalSupply=10000000000
-TypeError: 'mintingFinished' is not a function
-    at printTokenContractDetails (functions.js:287:52)
-    at <anonymous>:1:1
-
+undefined
 > 
 RESULT: 
 undefined

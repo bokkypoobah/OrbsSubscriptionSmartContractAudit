@@ -1,11 +1,72 @@
+# Orbs Subscription, Billing And Token Contract Audit
 
+## Summary
 
-https://github.com/orbs-network/orbs-token/commit/044e1e49bab83604cbc3c2522036cd0163dc93cf
+[Orbs](https://www.orbs.com/) intends to run a subscription and billing service using Ethereum smart contracts.
 
-https://github.com/orbs-network/orbs-subscription/commit/6c9e39ddbc4c0405eb6f0c7c66bef0baaf66acd9
+Bok Consulting Pty Ltd was commissioned to perform an audit Orbs' token, subscription and billing Ethereum smart contracts.
 
+This audit has been conducted on Orbs' [subscription and billing source code](https://github.com/orbs-network/orbs-subscription) in commits
+[6c9e39d](https://github.com/orbs-network/orbs-subscription/commit/6c9e39ddbc4c0405eb6f0c7c66bef0baaf66acd9).
+
+This audit has also been conducted on Orbs' [token source code](https://github.com/orbs-network/orbs-token) in commits
+[044e1e4](https://github.com/orbs-network/orbs-token/commit/044e1e49bab83604cbc3c2522036cd0163dc93cf).
+
+TODO: Check that no potential vulnerabilities have been identified in the token, subscription and billing contracts.
+
+<br />
+
+<hr />
 
 ## Table Of Contents
+
+* [Summary](#summary)
+* [Recommendations](#recommendations)
+* [Potential Vulnerabilities](#potential-vulnerabilities)
+* [Scope](#scope)
+* [Limitations](#limitations)
+* [Risks](#risks)
+* [Testing](#testing)
+* [Code Review](#code-review)
+
+<br />
+
+<hr />
+
+## Recommendations
+
+<br />
+
+<hr />
+
+## Potential Vulnerabilities
+
+TODO: Check that no potential vulnerabilities have been identified in the token, subscription and billing contracts.
+
+<br />
+
+<hr />
+
+## Scope
+
+This audit is into the technical aspects of the token, subscription and billing contracts. The primary aim of this audit is to ensure that tokens
+used with these contracts are not easily attacked or stolen by third parties. The secondary aim of this audit is to ensure the coded algorithms work as expected. This audit does not guarantee that that the code is bugfree, but intends to highlight any areas of weaknesses.
+
+<br />
+
+<hr />
+
+## Limitations
+
+This audit makes no statements or warranties about the viability of the Orbs' business proposition, the individuals involved in this business or the regulatory regime for the business model.
+
+<br />
+
+<hr />
+
+## Risks
+
+TODO
 
 <br />
 
@@ -103,3 +164,9 @@ The differences in *OrbsToken.sol* to enable the Solidity compilation are:
 >         totalSupply_ = TOTAL_SUPPLY;
 >         balances[_distributor] = TOTAL_SUPPLY;
 ```
+
+<br />
+
+<br />
+
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Orbs - May 22 2018. The MIT Licence.
