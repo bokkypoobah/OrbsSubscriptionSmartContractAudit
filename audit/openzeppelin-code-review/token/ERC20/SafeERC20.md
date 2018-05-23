@@ -7,8 +7,10 @@ Source file [../../../openzeppelin-contracts/token/ERC20/SafeERC20.sol](../../..
 <hr />
 
 ```javascript
+// BK Ok
 pragma solidity ^0.4.21;
 
+// BK Next 2 Ok
 import "./ERC20Basic.sol";
 import "./ERC20.sol";
 
@@ -19,11 +21,15 @@ import "./ERC20.sol";
  * To use this library you can add a `using SafeERC20 for ERC20;` statement to your contract,
  * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.
  */
+// BK Ok
 library SafeERC20 {
+  // BK Ok
   function safeTransfer(ERC20Basic token, address to, uint256 value) internal {
+    // BK Ok
     assert(token.transfer(to, value));
   }
 
+  // BK Ok
   function safeTransferFrom(
     ERC20 token,
     address from,
@@ -32,10 +38,13 @@ library SafeERC20 {
   )
     internal
   {
+    // BK Ok
     assert(token.transferFrom(from, to, value));
   }
 
+  // BK Ok
   function safeApprove(ERC20 token, address spender, uint256 value) internal {
+    // BK Ok
     assert(token.approve(spender, value));
   }
 }

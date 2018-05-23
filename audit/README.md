@@ -119,35 +119,38 @@ in [test/test2results.txt](test/test2results.txt) and the detailed output saved 
   * [ ] contract SubscriptionBilling is HasNoContracts
     * [ ] using SafeMath for uint256;
 
-### From OrbsToken
-* [ ] [code-review/OrbsToken.md](code-review/OrbsToken.md)
-  * [ ] contract OrbsToken is HasNoTokens, HasNoContracts, StandardToken
+### OrbsToken
+
+From [orbs-token](https://github.com/orbs-network/orbs-token/commit/044e1e49bab83604cbc3c2522036cd0163dc93cf):
+
+* [x] [orbstoken-code-review/OrbsToken.md](orbstoken-code-review/OrbsToken.md)
+  * [x] contract OrbsToken is HasNoTokens, HasNoContracts, StandardToken
 
 <br />
 
 ### OpenZeppelin 1.8.0 Dependencies
-* [ ] [openzeppelin-code-review/math/SafeMath.md](openzeppelin-code-review/math/SafeMath.md)
-  * [ ] library SafeMath
-* [ ] [openzeppelin-code-review/ownership/CanReclaimToken.md](openzeppelin-code-review/ownership/CanReclaimToken.md)
-  * [ ] contract CanReclaimToken is Ownable
-    * [ ] using SafeERC20 for ERC20Basic;
-* [ ] [openzeppelin-code-review/ownership/HasNoContracts.md](openzeppelin-code-review/ownership/HasNoContracts.md)
-  * [ ] contract HasNoContracts is Ownable
-* [ ] [openzeppelin-code-review/ownership/HasNoTokens.md](openzeppelin-code-review/ownership/HasNoTokens.md)
-  * [ ] contract HasNoTokens is CanReclaimToken
-* [ ] [openzeppelin-code-review/ownership/Ownable.md](openzeppelin-code-review/ownership/Ownable.md)
-  * [ ] contract Ownable
-* [ ] [openzeppelin-code-review/token/ERC20/BasicToken.md](openzeppelin-code-review/token/ERC20/BasicToken.md)
-  * [ ] contract BasicToken is ERC20Basic
-    * [ ] using SafeMath for uint256;
-* [ ] [openzeppelin-code-review/token/ERC20/ERC20.md](openzeppelin-code-review/token/ERC20/ERC20.md)
-  * [ ] contract ERC20 is ERC20Basic
-* [ ] [openzeppelin-code-review/token/ERC20/ERC20Basic.md](openzeppelin-code-review/token/ERC20/ERC20Basic.md)
-  * [ ] contract ERC20Basic
-* [ ] [openzeppelin-code-review/token/ERC20/SafeERC20.md](openzeppelin-code-review/token/ERC20/SafeERC20.md)
-  * [ ] library SafeERC20
-* [ ] [openzeppelin-code-review/token/ERC20/StandardToken.md](openzeppelin-code-review/token/ERC20/StandardToken.md)
-  * [ ] contract StandardToken is ERC20, BasicToken
+* [x] [openzeppelin-code-review/math/SafeMath.md](openzeppelin-code-review/math/SafeMath.md)
+  * [x] library SafeMath
+* [x] [openzeppelin-code-review/ownership/Ownable.md](openzeppelin-code-review/ownership/Ownable.md)
+  * [x] contract Ownable
+* [x] [openzeppelin-code-review/ownership/HasNoContracts.md](openzeppelin-code-review/ownership/HasNoContracts.md)
+  * [x] contract HasNoContracts is Ownable
+* [x] [openzeppelin-code-review/ownership/CanReclaimToken.md](openzeppelin-code-review/ownership/CanReclaimToken.md)
+  * [x] contract CanReclaimToken is Ownable
+    * [x] using SafeERC20 for ERC20Basic;
+* [x] [openzeppelin-code-review/ownership/HasNoTokens.md](openzeppelin-code-review/ownership/HasNoTokens.md)
+  * [x] contract HasNoTokens is CanReclaimToken
+* [x] [openzeppelin-code-review/token/ERC20/ERC20Basic.md](openzeppelin-code-review/token/ERC20/ERC20Basic.md)
+  * [x] contract ERC20Basic
+* [x] [openzeppelin-code-review/token/ERC20/ERC20.md](openzeppelin-code-review/token/ERC20/ERC20.md)
+  * [x] contract ERC20 is ERC20Basic
+* [x] [openzeppelin-code-review/token/ERC20/BasicToken.md](openzeppelin-code-review/token/ERC20/BasicToken.md)
+  * [x] contract BasicToken is ERC20Basic
+    * [x] using SafeMath for uint256;
+* [x] [openzeppelin-code-review/token/ERC20/StandardToken.md](openzeppelin-code-review/token/ERC20/StandardToken.md)
+  * [x] contract StandardToken is ERC20, BasicToken
+* [x] [openzeppelin-code-review/token/ERC20/SafeERC20.md](openzeppelin-code-review/token/ERC20/SafeERC20.md)
+  * [x] library SafeERC20
 
 <br />
 
