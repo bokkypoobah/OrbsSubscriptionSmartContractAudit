@@ -145,7 +145,7 @@ console.log("RESULT: ");
 
 var now = new Date()/1000;
 
-for (var i = parseInt(now); i < parseInt(now) + 500000000; i = parseInt(i) + 1000000 + new Date() % 173) {
+for (var i = parseInt(now) - 500000000; i < parseInt(now) + 500000000; i = parseInt(i) + 1000000 + new Date() % 173) {
   var fromTimestamp = testDateTime.fromTimestamp(i);
   var toTimestamp = testDateTime.toTimestamp(fromTimestamp[0], fromTimestamp[1], fromTimestamp[2], fromTimestamp[3], fromTimestamp[4], fromTimestamp[5]);
   var jsDate = new Date(i * 1000);
