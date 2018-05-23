@@ -128,7 +128,10 @@ From [orbs-token](https://github.com/orbs-network/orbs-token/commit/044e1e49bab8
 
 <br />
 
-### OpenZeppelin 1.8.0 Dependencies
+### OpenZeppelin 1.9.0 Dependencies
+
+From [openzeppelin-solidity](https://github.com/OpenZeppelin/openzeppelin-solidity/tree/v1.9.0/contracts):
+
 * [x] [openzeppelin-code-review/math/SafeMath.md](openzeppelin-code-review/math/SafeMath.md)
   * [x] library SafeMath
 * [x] [openzeppelin-code-review/ownership/Ownable.md](openzeppelin-code-review/ownership/Ownable.md)
@@ -192,4 +195,4 @@ The differences in *OrbsToken.sol* to enable the Solidity compilation are:
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd for Orbs - May 22 2018. The MIT Licence.
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Orbs - May 23 2018. The MIT Licence.
