@@ -17,4 +17,12 @@ contract TestDateTime {
     function toTimestamp(uint16 _year, uint8 _month, uint8 _day, uint8 _hour, uint8 _minutes, uint8 _seconds) public pure returns (uint256 timestamp) {
         return DateTime.toTimestamp(_year, _month, _day, _hour, _minutes, _seconds);
     }
+
+    function toTimestampYYYYMM(uint16 _year, uint8 _month) public pure returns (uint) {
+        return DateTime.toTimestamp(_year, _month);
+    }
+
+    function toTimestampYYYYMMDD(uint16 _year, uint8 _month, uint8 _day) public pure returns (uint) {
+        return DateTime.toTimestamp(_year, _month, _day);
+    }
 }

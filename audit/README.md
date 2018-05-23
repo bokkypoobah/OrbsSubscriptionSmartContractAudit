@@ -23,6 +23,7 @@ TODO: Check that no potential vulnerabilities have been identified in the token,
 
 * [Summary](#summary)
 * [Recommendations](#recommendations)
+* [Notes](#notes)
 * [Potential Vulnerabilities](#potential-vulnerabilities)
 * [Scope](#scope)
 * [Limitations](#limitations)
@@ -35,6 +36,18 @@ TODO: Check that no potential vulnerabilities have been identified in the token,
 <hr />
 
 ## Recommendations
+
+None
+
+<br />
+
+<hr />
+
+## Notes
+
+* The *DateTime* library uses 1 to represent January, up to 12 to represent December
+* The *DateTime* library uses 1 to represent the first day of the month, up to 31 to represent the last day of the month. The `toTimestamp(uint16 _year, uint8 _month, uint8 _day, uint8 _hour, uint8 _minutes, uint8 _seconds)` function will also accept 0 as the first day of the month
+* In `DateTime.toTimestamp(uint16 _year, uint8 _month)`, the third function parameter in the call to `return toTimestamp(_year, _month, 0, 0, 0, 0);` can be specified as 0 to represent the first day of the month
 
 <br />
 

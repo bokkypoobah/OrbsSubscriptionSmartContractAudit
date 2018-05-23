@@ -143,8 +143,28 @@ failIfTxStatusError(testDateTimeTx, testDateTimeMessage);
 printTxData("testDateTimeAddress=" + testDateTimeAddress, testDateTimeTx);
 console.log("RESULT: ");
 
-var now = new Date()/1000;
 
+console.log("RESULT: ---------- Test toTimestamp(...) against JavaScript Date with first day = 0 or 1 ----------");
+for (var year = 2014; year < 2025; year++) {
+  for (var month = 1; month <= 12; month++) {
+    var toTimestamp = testDateTime.toTimestampYYYYMM(year, month);
+    var toTimestamp1 = testDateTime.toTimestampYYYYMMDD(year, month, 0);
+    var jsDate = new Date(toTimestamp * 1000);
+    var jsDate1 = new Date(toTimestamp1 * 1000);
+    console.log("RESULT: toTimestampYYYYMM(" + year + ", " + month + ") = " + toTimestamp + " " + jsDate.toUTCString());
+    console.log("RESULT: toTimestampYYYYMMDD(" + year + ", " + month + ", 1) = " + toTimestamp1 + " " + jsDate1.toUTCString());
+    if (year == jsDate.getUTCFullYear() && month == (parseInt(jsDate.getUTCMonth()) + 1) &&
+      year == jsDate1.getUTCFullYear() && month == (parseInt(jsDate1.getUTCMonth()) + 1)) {
+      console.log("RESULT: PASS");
+    } else {
+      console.log("RESULT: FAIL");
+    }
+  }
+}
+
+
+console.log("RESULT: ---------- Test fromTimestamp(...) and toTimestamp(...) against JavaScript Date ----------");
+var now = new Date()/1000;
 for (var i = parseInt(now) - 500000000; i < parseInt(now) + 500000000; i = parseInt(i) + 1000000 + new Date() % 173) {
   var fromTimestamp = testDateTime.fromTimestamp(i);
   var toTimestamp = testDateTime.toTimestamp(fromTimestamp[0], fromTimestamp[1], fromTimestamp[2], fromTimestamp[3], fromTimestamp[4], fromTimestamp[5]);
@@ -167,115 +187,6 @@ for (var i = parseInt(now) - 500000000; i < parseInt(now) + 500000000; i = parse
     console.log("RESULT: FAIL now=" + i + " fromTimestamp=" + JSON.stringify(fromTimestamp)+ " toTimestamp=" + toTimestamp);
   }
 }
-
-exit;
-
-// -----------------------------------------------------------------------------
-var subscriptionMessage = "Deploy SubscriptionBilling Contract";
-var federationMembers = [federationMember1, federationMember2, federationMember3, federationMember4, federationMember5, federationMember6, federationMember7, federationMember8, federationMember9, federationMember10, federationMember11, federationMember12, federationMember13];
-var minimalMonthlySubscription = new BigNumber("10").shift(18);
-// -----------------------------------------------------------------------------
-console.log("RESULT: ---------- " + subscriptionMessage + " ----------");
-// console.log("RESULT: subscriptionBin='" + subscriptionBin + "'");
-var newSubscriptionBin = subscriptionBin.replace(/__DateTime\.sol\:DateTime_________________/g, libDateTimeAddress.substring(2, 42));
-// console.log("RESULT: newSubscriptionBin='" + newSubscriptionBin + "'");
-var subscriptionContract = web3.eth.contract(subscriptionAbi);
-var subscriptionTx = null;
-var subscriptionAddress = null;
-var subscription = subscriptionContract.new(tokenAddress, federationMembers, minimalMonthlySubscription, {from: contractOwnerAccount, data: newSubscriptionBin, gas: 6000000, gasPrice: defaultGasPrice},
-  function(e, contract) {
-    if (!e) {
-      if (!contract.address) {
-        subscriptionTx = contract.transactionHash;
-      } else {
-        subscriptionAddress = contract.address;
-        addAccount(subscriptionAddress, "SubscriptionBilling Contract");
-        addSubscriptionContractAddressAndAbi(subscriptionAddress, subscriptionAbi);
-        console.log("DATA: subscriptionAddress=" + subscriptionAddress);
-      }
-    }
-  }
-);
-while (txpool.status.pending > 0) {
-}
-printBalances();
-failIfTxStatusError(subscriptionTx, subscriptionMessage);
-printTxData("subscriptionAddress=" + subscriptionAddress, subscriptionTx);
-printSubscriptionContractDetails();
-printTokenContractDetails();
-console.log("RESULT: ");
-
-
-// -----------------------------------------------------------------------------
-var transferAndApproveTokensMessage = "Transfer And Approve Tokens";
-// -----------------------------------------------------------------------------
-console.log("RESULT: ---------- " + transferAndApproveTokensMessage + " ----------");
-var transferAndApproveTokensTx = [];
-var i = 0;
-federationMembers.forEach(function(e) {
-  // console.log("RESULT: " + e);
-  transferAndApproveTokensTx.push(token.transfer(e, new BigNumber(10000).shift(18), {from: tokenDistributor, gas: 100000, gasPrice: defaultGasPrice}));
-  transferAndApproveTokensTx.push(token.approve(subscriptionAddress, new BigNumber(10000).shift(18), {from: e, gas: 100000, gasPrice: defaultGasPrice}));
-  i++;
-});
-while (txpool.status.pending > 0) {
-}
-printBalances();
-i = 0;
-federationMembers.forEach(function(e) {
-  // console.log("RESULT: " + e);
-  var tx = transferAndApproveTokensTx[i];
-  failIfTxStatusError(tx, transferAndApproveTokensMessage + " - " + e);
-  printTxData("transferAndApproveTokens1_" + e, tx);
-  i++;
-});
-printSubscriptionContractDetails();
-printTokenContractDetails();
-console.log("RESULT: ");
-
-
-// -----------------------------------------------------------------------------
-var subscribeMessage = "Subscribe";
-// -----------------------------------------------------------------------------
-console.log("RESULT: ---------- " + subscribeMessage + " ----------");
-var subscribeTx = [];
-i = 0;
-federationMembers.forEach(function(e) {
-  // console.log("RESULT: " + e);
-  var _id = "0x" + web3.padLeft(web3.toHex(parseInt(i) + 1000).substring(2), 64);
-  var _value = web3.toWei(parseInt(1000) + i * 100 + i % 2 + i % 3 + i % 5 + i % 7, "ether");
-  subscribeTx.push(subscription.subscribeForCurrentMonth(_id, "" + i, _value, {from: e, gas: 300000, gasPrice: defaultGasPrice}));
-  i++;
-});
-while (txpool.status.pending > 0) {
-}
-printBalances();
-i = 0;
-federationMembers.forEach(function(e) {
-  // console.log("RESULT: " + e);
-  var tx = subscribeTx[i];
-  failIfTxStatusError(tx, subscribeMessage + " - " + e);
-  printTxData("subscribe1_" + e, tx);
-  i++;
-});
-printSubscriptionContractDetails();
-printTokenContractDetails();
-console.log("RESULT: ");
-
-
-// -----------------------------------------------------------------------------
-var distributeFees1_Message = "Distribute Fees";
-// -----------------------------------------------------------------------------
-console.log("RESULT: ---------- " + distributeFees1_Message + " ----------");
-var distributeFees1_1Tx = subscription.distributeFees({from: contractOwnerAccount, gas: 1000000, gasPrice: defaultGasPrice});
-while (txpool.status.pending > 0) {
-}
-printBalances();
-printTxData("distributeFees1_1Tx", distributeFees1_1Tx);
-failIfTxStatusError(distributeFees1_1Tx, distributeFees1_Message);
-printSubscriptionContractDetails();
-printTokenContractDetails();
-console.log("RESULT: ");
 
 
 EOF
