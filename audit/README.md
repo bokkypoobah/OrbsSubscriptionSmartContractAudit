@@ -7,8 +7,9 @@
 Bok Consulting Pty Ltd was commissioned to perform an audit Orbs' token, subscription and billing Ethereum smart contracts.
 
 This audit has been conducted on Orbs' [subscription and billing source code](https://github.com/orbs-network/orbs-subscription) in commits
-[6c9e39d](https://github.com/orbs-network/orbs-subscription/commit/6c9e39ddbc4c0405eb6f0c7c66bef0baaf66acd9) and
-[a380e8e](https://github.com/orbs-network/orbs-subscription/commit/a380e8e61d4a332da99d8aa3dc3bec0293651f9d).
+[6c9e39d](https://github.com/orbs-network/orbs-subscription/commit/6c9e39ddbc4c0405eb6f0c7c66bef0baaf66acd9),
+[a380e8e](https://github.com/orbs-network/orbs-subscription/commit/a380e8e61d4a332da99d8aa3dc3bec0293651f9d) and
+[9d9b178](https://github.com/orbs-network/orbs-subscription/commit/9d9b1788daf221082854b16a9d570c8743ea2a77).
 
 This audit has also been conducted on Orbs' [token source code](https://github.com/orbs-network/orbs-token) in commits
 [044e1e4](https://github.com/orbs-network/orbs-token/commit/044e1e49bab83604cbc3c2522036cd0163dc93cf).
@@ -123,14 +124,14 @@ in [test/test2results.txt](test/test2results.txt) and the detailed output saved 
 ## Code Review
 
 ### From OrbsSubscription
-* [ ] [code-review/DateTime.md](code-review/DateTime.md)
-  * [ ] library DateTime
-    * [ ] using SafeMath for uint256;
-    * [ ] using SafeMath for uint16;
-    * [ ] using SafeMath for uint8;
+* [x] [code-review/DateTime.md](code-review/DateTime.md)
+  * [x] library DateTime
+    * [x] using SafeMath for uint256;
+    * [x] using SafeMath for uint16;
+    * [x] using SafeMath for uint8;
 * [ ] [code-review/SubscriptionBilling.md](code-review/SubscriptionBilling.md)
   * [ ] contract SubscriptionBilling is HasNoContracts
-    * [ ] using SafeMath for uint256;
+    * [x] using SafeMath for uint256;
 
 ### OrbsToken
 

@@ -34,11 +34,11 @@ library DateTime {
     }
 
     // BK Ok - 24 * 60 * 60 = 86,400
-    uint public constant DAY_IN_SECONDS = 86400;
+    uint public constant SECONDS_IN_DAY = 86400;
     // BK Ok - 365 * 24 * 60 * 60 = 31,536,000
-    uint public constant YEAR_IN_SECONDS = 31536000;
+    uint public constant SECONDS_IN_YEAR = 31536000;
     // BK Ok - 366 * 24 * 60 * 60 = 31,622,400
-    uint public constant LEAP_YEAR_IN_SECONDS = 31622400;
+    uint public constant SECONDS_IN_LEAP_YEAR = 31622400;
     // BK Ok
     uint public constant DAYS_IN_WEEK = 7;
     // BK Ok
@@ -46,9 +46,9 @@ library DateTime {
     // BK Ok
     uint public constant MINUTES_IN_HOUR = 60;
     // BK Ok - 60 * 60 = 3,600
-    uint public constant HOUR_IN_SECONDS = 3600;
+    uint public constant SECONDS_IN_HOUR = 3600;
     // BK Ok
-    uint public constant MINUTE_IN_SECONDS = 60;
+    uint public constant SECONDS_IN_MINUTE = 60;
 
     // BK Ok - Unixtime 01/01/1970 00:00:00 UTC
     uint16 public constant ORIGIN_YEAR = 1970;
@@ -119,43 +119,38 @@ library DateTime {
     /// @dev Returns the year of the current UNIX timestamp.
     /// @param _timestamp uint256 The UNIX timestamp to parse.
     // BK Ok - Pure function
-    function getYear(uint256 _timestamp) public pure returns (uint16) {
+    function getYear(uint256 _timestamp) public pure returns (uint16 year) {
         // BK Ok
-        uint256 secondsAccountedFor = 0;
-        // BK Ok
-        uint16 year;
+        uint256 secondsAccountedFor;
         // BK Ok
         uint16 numLeapYears;
 
         // Year
         // BK Ok
-        year = uint16(ORIGIN_YEAR.add(_timestamp.div(YEAR_IN_SECONDS)));
+        year = uint16(ORIGIN_YEAR.add(_timestamp.div(SECONDS_IN_YEAR)));
         // BK Ok
         numLeapYears = uint16(leapYearsBefore(year).sub(leapYearsBefore(ORIGIN_YEAR)));
 
         // BK Ok
-        secondsAccountedFor = secondsAccountedFor.add(LEAP_YEAR_IN_SECONDS.mul(numLeapYears));
+        secondsAccountedFor = secondsAccountedFor.add(SECONDS_IN_LEAP_YEAR.mul(numLeapYears));
         // BK Ok
-        secondsAccountedFor = secondsAccountedFor.add(YEAR_IN_SECONDS.mul((year.sub(ORIGIN_YEAR).sub(numLeapYears))));
+        secondsAccountedFor = secondsAccountedFor.add(SECONDS_IN_YEAR.mul((year.sub(ORIGIN_YEAR).sub(numLeapYears))));
 
         // BK Ok
         while (secondsAccountedFor > _timestamp) {
             // BK Ok
             if (isLeapYear(uint16(year.sub(1)))) {
                 // BK Ok
-                secondsAccountedFor = secondsAccountedFor.sub(LEAP_YEAR_IN_SECONDS);
+                secondsAccountedFor = secondsAccountedFor.sub(SECONDS_IN_LEAP_YEAR);
             // BK Ok
             } else {
                 // BK Ok
-                secondsAccountedFor = secondsAccountedFor.sub(YEAR_IN_SECONDS);
+                secondsAccountedFor = secondsAccountedFor.sub(SECONDS_IN_YEAR);
             }
 
             // BK Ok
             year = uint16(year.sub(1));
         }
-
-        // BK Ok
-        return year;
     }
 
     /// @dev Returns the month of the current UNIX timestamp.
@@ -179,7 +174,7 @@ library DateTime {
     // BK Ok - Pure function
     function getHour(uint256 _timestamp) public pure returns (uint8) {
         // BK Ok
-        return uint8((_timestamp.div(HOUR_IN_SECONDS)) % HOURS_IN_DAY);
+        return uint8((_timestamp.div(SECONDS_IN_HOUR)) % HOURS_IN_DAY);
     }
 
     /// @dev Returns the minutes of the current UNIX timestamp.
@@ -187,7 +182,7 @@ library DateTime {
     // BK Ok - Pure function
     function getMinute(uint256 _timestamp) public pure returns (uint8) {
         // BK Ok
-        return uint8((_timestamp.div(MINUTE_IN_SECONDS)) % MINUTES_IN_HOUR);
+        return uint8((_timestamp.div(SECONDS_IN_MINUTE)) % MINUTES_IN_HOUR);
     }
 
     /// @dev Returns the seconds of the current UNIX timestamp.
@@ -195,7 +190,7 @@ library DateTime {
     // BK Ok - Pure function
     function getSecond(uint256 _timestamp) public pure returns (uint8) {
         // BK Ok
-        return uint8(_timestamp % MINUTE_IN_SECONDS);
+        return uint8(_timestamp % SECONDS_IN_MINUTE);
     }
 
     /// @dev Returns the weekday of the current UNIX timestamp.
@@ -203,7 +198,7 @@ library DateTime {
     // BK Ok - Pure function
     function getWeekday(uint256 _timestamp) public pure returns (uint8) {
         // BK Ok
-        return uint8((_timestamp.div(DAY_IN_SECONDS).add(4)) % DAYS_IN_WEEK);
+        return uint8((_timestamp.div(SECONDS_IN_DAY).add(4)) % DAYS_IN_WEEK);
     }
 
     /// @dev Returns the timestamp of the beginning of the month.
@@ -274,11 +269,11 @@ library DateTime {
             // BK Ok
             if (isLeapYear(i)) {
                 // BK Ok
-                timestamp = timestamp.add(LEAP_YEAR_IN_SECONDS);
+                timestamp = timestamp.add(SECONDS_IN_LEAP_YEAR);
             // BK Ok
             } else {
                 // BK Ok
-                timestamp = timestamp.add(YEAR_IN_SECONDS);
+                timestamp = timestamp.add(SECONDS_IN_YEAR);
             }
         }
 
@@ -311,28 +306,25 @@ library DateTime {
         // BK Ok
         for (i = 1; i < _month; ++i) {
             // BK Ok
-            timestamp = timestamp.add(DAY_IN_SECONDS.mul(monthDayCounts[i.sub(1)]));
+            timestamp = timestamp.add(SECONDS_IN_DAY.mul(monthDayCounts[i.sub(1)]));
         }
 
         // Day
         // BK NOTE - Day 0 is the same as day 1
         // BK Ok
-        timestamp = timestamp.add(DAY_IN_SECONDS.mul(_day == 0 ? 0 : _day.sub(1)));
+        timestamp = timestamp.add(SECONDS_IN_DAY.mul(_day == 0 ? 0 : _day.sub(1)));
 
         // Hour
         // BK Ok
-        timestamp = timestamp.add(HOUR_IN_SECONDS.mul(_hour));
+        timestamp = timestamp.add(SECONDS_IN_HOUR.mul(_hour));
 
         // Minutes
         // BK Ok
-        timestamp = timestamp.add(MINUTE_IN_SECONDS.mul(_minutes));
+        timestamp = timestamp.add(SECONDS_IN_MINUTE.mul(_minutes));
 
         // Seconds
         // BK Ok
         timestamp = timestamp.add(_seconds);
-
-        // BK Ok
-        return timestamp;
     }
 
     /// @dev Parses a UNIX timestamp to a DT struct.
@@ -340,7 +332,7 @@ library DateTime {
     // BK Ok - Internal pure function. Called by getMonth(...) and getDay(...)
     function parseTimestamp(uint256 _timestamp) internal pure returns (DT dt) {
         // BK Next 3 Ok
-        uint256 secondsAccountedFor = 0;
+        uint256 secondsAccountedFor;
         uint256 buf;
         uint8 i;
 
@@ -351,9 +343,9 @@ library DateTime {
         buf = leapYearsBefore(dt.year) - leapYearsBefore(ORIGIN_YEAR);
 
         // BK Ok - Add seconds for each leap year
-        secondsAccountedFor = secondsAccountedFor.add(LEAP_YEAR_IN_SECONDS.mul(buf));
+        secondsAccountedFor = secondsAccountedFor.add(SECONDS_IN_LEAP_YEAR.mul(buf));
         // BK Ok - Add seconds for each (non-leap-year - leap year)
-        secondsAccountedFor = secondsAccountedFor.add(YEAR_IN_SECONDS.mul((dt.year.sub(ORIGIN_YEAR).sub(buf))));
+        secondsAccountedFor = secondsAccountedFor.add(SECONDS_IN_YEAR.mul((dt.year.sub(ORIGIN_YEAR).sub(buf))));
 
         // Month
         // BK Ok
@@ -361,7 +353,7 @@ library DateTime {
         // BK Ok
         for (i = 1; i <= 12; ++i) {
             // BK Ok
-            secondsInMonth = DAY_IN_SECONDS.mul(getDaysInMonth(dt.year, i));
+            secondsInMonth = SECONDS_IN_DAY.mul(getDaysInMonth(dt.year, i));
             // BK Ok
             if (secondsInMonth.add(secondsAccountedFor) > _timestamp) {
                 // BK Ok
@@ -377,14 +369,14 @@ library DateTime {
         // BK Ok
         for (i = 1; i <= getDaysInMonth(dt.year, dt.month); ++i) {
             // BK Ok
-            if (DAY_IN_SECONDS.add(secondsAccountedFor) > _timestamp) {
+            if (SECONDS_IN_DAY.add(secondsAccountedFor) > _timestamp) {
                 // BK Ok
                 dt.day = i;
                 // BK Ok
                 break;
             }
             // BK Ok
-            secondsAccountedFor = secondsAccountedFor.add(DAY_IN_SECONDS);
+            secondsAccountedFor = secondsAccountedFor.add(SECONDS_IN_DAY);
         }
 
         // Hour

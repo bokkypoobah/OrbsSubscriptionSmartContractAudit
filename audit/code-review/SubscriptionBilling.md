@@ -79,7 +79,7 @@ contract SubscriptionBilling is HasNoContracts {
     constructor(ERC20 _orbs, address[] _federationMembers,
         uint256 _minimalMonthlySubscription) public {
         // BK Ok
-        require(_orbs != address(0), "Address must not be 0!");
+        require(address(_orbs) != address(0), "Address must not be 0!");
         // BK Ok
         require(isFedererationMembersListValid(_federationMembers), "Invalid federation members list!");
         // BK Ok
@@ -93,30 +93,31 @@ contract SubscriptionBilling is HasNoContracts {
 
     /// @dev Returns the current month's subscription data.
     /// @param _id bytes32 The ID of the subscription.
+    // BK Ok - View function
     function getSubscriptionData(bytes32 _id) public view returns (bytes32 id, string profile, uint256 startTime,
         uint256 tokens) {
+        // BK Ok
         require(_id != EMPTY, "ID must not be empty!");
 
         // Get the current year and month.
+        // BK Next 2 Ok
         uint16 currentYear;
         uint8 currentMonth;
+        // BK Ok
         (currentYear, currentMonth) = getCurrentTime();
 
-        MonthlySubscriptions storage monthlySubscription = subscriptions[currentYear][currentMonth];
-        Subscription memory subscription = monthlySubscription.subscriptions[_id];
-
-        id = subscription.id;
-        profile = subscription.profile;
-        startTime = subscription.startTime;
-        tokens = subscription.tokens;
+        // BK Ok
+        return getSubscriptionDataByTime(_id, currentYear, currentMonth);
     }
 
     /// @dev Returns the monthly subscription status.
     /// @param _id bytes32 The ID of the subscription.
     /// @param _year uint16 The year of the subscription.
     /// @param _month uint8 The month of the subscription.
+    // BK Ok - View function
     function getSubscriptionDataByTime(bytes32 _id, uint16 _year, uint8 _month) public view returns (bytes32 id,
         string profile, uint256 startTime, uint256 tokens) {
+        // BK Ok
         require(_id != EMPTY, "ID must not be empty!");
 
         MonthlySubscriptions storage monthlySubscription = subscriptions[_year][_month];
@@ -163,7 +164,7 @@ contract SubscriptionBilling is HasNoContracts {
 
             monthlySubscription.totalTokens = monthlySubscription.totalTokens.sub(memberFee);
 
-            orbs.transfer(member, memberFee);
+            require(orbs.transfer(member, memberFee));
             emit DistributedFees(member, memberFee);
         }
     }
@@ -205,7 +206,7 @@ contract SubscriptionBilling is HasNoContracts {
     function subscribe(bytes32 _id, string _profile, uint256 _value, uint256 _startTime) internal {
         require(_id != EMPTY, "ID must not be empty!");
         require(bytes(_profile).length > 0, "Profile must not be empty!");
-        require(_value > 0, "Value be greater than 0!");
+        require(_value > 0, "Value must be greater than 0!");
         require(_startTime >= now, "Starting time must be in the future");
 
         // Verify that the subscriber approved enough tokens to pay for the subscription.
@@ -232,7 +233,7 @@ contract SubscriptionBilling is HasNoContracts {
         // Make sure that the total monthly subscription allocation is above the minimal requirement.
         require(subscription.tokens >= minimalMonthlySubscription, "Subscription value is too low!");
 
-        // Update this month's total subscription allocations.
+        // Update selected month's total subscription allocations.
         monthlySubscription.totalTokens = monthlySubscription.totalTokens.add(_value);
 
         emit Subscribed(msg.sender, _id, _value, _startTime);
@@ -241,7 +242,9 @@ contract SubscriptionBilling is HasNoContracts {
     /// @dev Returns the current year and month.
     /// @return year uint16 The current year.
     /// @return month uint8 The current month.
+    // BK Ok - View function
     function getCurrentTime() private view returns (uint16 year, uint8 month) {
+        // BK Ok
         return getTime(now);
     }
 
@@ -249,8 +252,11 @@ contract SubscriptionBilling is HasNoContracts {
     /// @param _time uint256 The timestamp of the time to query.
     /// @return year uint16 The current year.
     /// @return month uint8 The current month.
+    // BK Ok - Pure function
     function getTime(uint256 _time) private pure returns (uint16 year, uint8 month) {
+        // BK Ok
         year = DateTime.getYear(_time);
+        // BK Ok
         month = DateTime.getMonth(_time);
     }
 
@@ -264,9 +270,15 @@ contract SubscriptionBilling is HasNoContracts {
             return false;
         }
 
-        // Make sure there are no duplicates in the federation members list.
+        // Make sure there are no zero addresses or duplicates in the federation members list.
         // BK Ok
         for (uint i = 0; i < _federationMembers.length - 1; ++i) {
+            // BK Ok
+            if (_federationMembers[i] == address(0)) {
+                // BK Ok
+                return false;
+            }
+
             // BK Ok
             for (uint j = i + 1; j < _federationMembers.length; ++j) {
                 // BK Ok
