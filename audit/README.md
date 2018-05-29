@@ -14,7 +14,7 @@ This audit has been conducted on Orbs' [subscription and billing source code](ht
 This audit has also been conducted on Orbs' [token source code](https://github.com/orbs-network/orbs-token) in commits
 [044e1e4](https://github.com/orbs-network/orbs-token/commit/044e1e49bab83604cbc3c2522036cd0163dc93cf).
 
-TODO: Check that no potential vulnerabilities have been identified in the token, subscription and billing contracts.
+No potential vulnerabilities have been identified in the token, subscription and billing contracts.
 
 <br />
 
@@ -46,6 +46,7 @@ None
 
 ## Notes
 
+* Note that the `minimalMonthlySubscription` check in `Subscription.subscribe(...)` will only check that the first `subscribe(...)` transaction exceeds this threshold. Subsequent `subscribe(...)` transactions will always pass this check, regardless of the amount of tokens sent
 * The *DateTime* library uses 1 to represent January, up to 12 to represent December
 * The *DateTime* library uses 1 to represent the first day of the month, up to 31 to represent the last day of the month. The `toTimestamp(uint16 _year, uint8 _month, uint8 _day, uint8 _hour, uint8 _minutes, uint8 _seconds)` function will also accept 0 as the first day of the month
 * In `DateTime.toTimestamp(uint16 _year, uint8 _month)`, the third function parameter in the call to `return toTimestamp(_year, _month, 0, 0, 0, 0);` can be specified as 0 to represent the first day of the month
@@ -56,7 +57,7 @@ None
 
 ## Potential Vulnerabilities
 
-TODO: Check that no potential vulnerabilities have been identified in the token, subscription and billing contracts.
+No potential vulnerabilities have been identified in the token, subscription and billing contracts.
 
 <br />
 
@@ -81,7 +82,7 @@ This audit makes no statements or warranties about the viability of the Orbs' bu
 
 ## Risks
 
-TODO
+None identified.
 
 <br />
 
@@ -129,8 +130,8 @@ in [test/test2results.txt](test/test2results.txt) and the detailed output saved 
     * [x] using SafeMath for uint256;
     * [x] using SafeMath for uint16;
     * [x] using SafeMath for uint8;
-* [ ] [code-review/SubscriptionBilling.md](code-review/SubscriptionBilling.md)
-  * [ ] contract SubscriptionBilling is HasNoContracts
+* [x] [code-review/SubscriptionBilling.md](code-review/SubscriptionBilling.md)
+  * [x] contract SubscriptionBilling is HasNoContracts
     * [x] using SafeMath for uint256;
 
 ### OrbsToken
@@ -209,4 +210,4 @@ The differences in *OrbsToken.sol* to enable the Solidity compilation are:
 
 <br />
 
-(c) BokkyPooBah / Bok Consulting Pty Ltd for Orbs - May 23 2018. The MIT Licence.
+(c) BokkyPooBah / Bok Consulting Pty Ltd for Orbs - May 30 2018. The MIT Licence.

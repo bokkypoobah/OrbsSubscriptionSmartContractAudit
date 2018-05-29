@@ -24,6 +24,11 @@ addAccount(eth.accounts[12], "Account #12 - Federation Member #10");
 addAccount(eth.accounts[13], "Account #13 - Federation Member #11");
 addAccount(eth.accounts[14], "Account #14 - Federation Member #12");
 addAccount(eth.accounts[15], "Account #15 - Federation Member #13");
+addAccount(eth.accounts[16], "Account #16 - Subscriber #1");
+addAccount(eth.accounts[17], "Account #17 - Subscriber #2");
+addAccount(eth.accounts[18], "Account #18 - Subscriber #3");
+addAccount(eth.accounts[19], "Account #19 - Subscriber #4");
+addAccount(eth.accounts[20], "Account #20 - Subscriber #5");
 
 var minerAccount = eth.accounts[0];
 var contractOwnerAccount = eth.accounts[1];
@@ -41,11 +46,16 @@ var federationMember10 = eth.accounts[12];
 var federationMember11 = eth.accounts[13];
 var federationMember12 = eth.accounts[14];
 var federationMember13 = eth.accounts[15];
+var subscriber1 = eth.accounts[16];
+var subscriber2 = eth.accounts[17];
+var subscriber3 = eth.accounts[18];
+var subscriber4 = eth.accounts[19];
+var subscriber5 = eth.accounts[20];
 
 var baseBlock = eth.blockNumber;
 
 function unlockAccounts(password) {
-  for (var i = 0; i < eth.accounts.length && i < accounts.length && i < 17; i++) {
+  for (var i = 0; i < eth.accounts.length && i < accounts.length && i < 21; i++) {
     personal.unlockAccount(eth.accounts[i], password, 100000);
     if (i > 0 && eth.getBalance(eth.accounts[i]) == 0) {
       personal.sendTransaction({from: eth.accounts[0], to: eth.accounts[i], value: web3.toWei(1000000, "ether")});

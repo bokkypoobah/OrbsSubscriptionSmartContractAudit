@@ -203,14 +203,15 @@ console.log("RESULT: ");
 
 // -----------------------------------------------------------------------------
 var transferAndApproveTokensMessage = "Transfer And Approve Tokens";
+var subscribers = [subscriber1, subscriber2, subscriber3, subscriber4, subscriber5];
 // -----------------------------------------------------------------------------
 console.log("RESULT: ---------- " + transferAndApproveTokensMessage + " ----------");
 var transferAndApproveTokensTx = [];
 var i = 0;
-federationMembers.forEach(function(e) {
+subscribers.forEach(function(e) {
   // console.log("RESULT: " + e);
-  transferAndApproveTokensTx.push(token.transfer(e, new BigNumber(10000).shift(18), {from: tokenDistributor, gas: 100000, gasPrice: defaultGasPrice}));
-  transferAndApproveTokensTx.push(token.approve(subscriptionAddress, new BigNumber(10000).shift(18), {from: e, gas: 100000, gasPrice: defaultGasPrice}));
+  transferAndApproveTokensTx.push(token.transfer(e, new BigNumber(20000).shift(18), {from: tokenDistributor, gas: 100000, gasPrice: defaultGasPrice}));
+  transferAndApproveTokensTx.push(token.approve(subscriptionAddress, new BigNumber(20000).shift(18), {from: e, gas: 100000, gasPrice: defaultGasPrice}));
   i++;
 });
 while (txpool.status.pending > 0) {
@@ -235,10 +236,10 @@ var subscribeMessage = "Subscribe";
 console.log("RESULT: ---------- " + subscribeMessage + " ----------");
 var subscribeTx = [];
 i = 0;
-federationMembers.forEach(function(e) {
+subscribers.forEach(function(e) {
   // console.log("RESULT: " + e);
   var _id = "0x" + web3.padLeft(web3.toHex(parseInt(i) + 1000).substring(2), 64);
-  var _value = web3.toWei(parseInt(1000) + i * 100 + i % 2 + i % 3 + i % 5 + i % 7, "ether");
+  var _value = web3.toWei(parseInt(10000) + i * 100 + i % 2 + i % 3 + i % 5 + i % 7, "ether");
   subscribeTx.push(subscription.subscribeForCurrentMonth(_id, "" + i, _value, {from: e, gas: 300000, gasPrice: defaultGasPrice}));
   i++;
 });
@@ -262,7 +263,7 @@ console.log("RESULT: ");
 var distributeFees1_Message = "Distribute Fees";
 // -----------------------------------------------------------------------------
 console.log("RESULT: ---------- " + distributeFees1_Message + " ----------");
-var distributeFees1_1Tx = subscription.distributeFees({from: contractOwnerAccount, gas: 1000000, gasPrice: defaultGasPrice});
+var distributeFees1_1Tx = subscription.distributeFees({from: minerAccount, gas: 1000000, gasPrice: defaultGasPrice});
 while (txpool.status.pending > 0) {
 }
 printBalances();
